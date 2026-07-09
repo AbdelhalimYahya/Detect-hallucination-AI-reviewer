@@ -3,3 +3,4 @@ dist/
 .env
 *.vsix
 Docs/infastructure
+MTmicro/
