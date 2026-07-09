@@ -10,3 +10,4 @@ export type {
 } from './types';
 
 export { loadConfig, generateDefaultConfig } from './config';
+export { walkFiles } from './scanner/fileWalker';
