@@ -11,3 +11,4 @@ export type {
 
 export { loadConfig, generateDefaultConfig } from './config';
 export { walkFiles } from './scanner/fileWalker';
+export { ResultCache } from './cache/resultCache';
