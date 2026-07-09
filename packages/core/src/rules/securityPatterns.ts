@@ -46,6 +46,9 @@ const rules: SecurityRule[] = [
       for (let i = 0; i < lines.length; i++) {
         let m: RegExpExecArray | null;
         while ((m = re.exec(lines[i])) !== null) {
+          const afterEquals = lines[i].slice(m.index + m[0].length - 1);
+          if (/^(?:escHtml|DOMPurify\.sanitize)\s*\(/.test(afterEquals)) continue;
+          if (/^`[^`]*$/.test(afterEquals) && (/escHtml\s*\(/.test(lines[i]) || !/\$\{/.test(lines[i]))) continue;
           findings.push({
             id: 'SEC_INNER_HTML',
             category: 'security',
@@ -71,8 +74,8 @@ const rules: SecurityRule[] = [
       const findings: Finding[] = [];
       const lines = content.split('\n');
       for (let i = 0; i < lines.length; i++) {
-        const concatRe = /(?:SELECT|INSERT|UPDATE|DELETE|CREATE|DROP|ALTER|TRUNCATE)[^;]{0,200}\+\s*[^\s"']/gi;
-        const templateRe = /(?:SELECT|INSERT|UPDATE|DELETE|CREATE|DROP|ALTER|TRUNCATE)[^;`]*\$\{/gi;
+        const concatRe = /(?:SELECT|INSERT|UPDATE|DELETE|CREATE|DROP|ALTER|TRUNCATE)[^;]{0,200}\+\s*[^\s"']/g;
+        const templateRe = /(?:SELECT|INSERT|UPDATE|DELETE|CREATE|DROP|ALTER|TRUNCATE)[^;`]*\$\{/g;
         for (const re2 of [concatRe, templateRe]) {
           let m: RegExpExecArray | null;
           while ((m = re2.exec(lines[i])) !== null) {

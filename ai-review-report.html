@@ -65,46 +65,196 @@ header{padding:16px}
 <div class="container">
 <header>
   <h1>ai-review — AI Code Review</h1>
-  <div class="meta">Target: ./fixtures/test-basic | Jul 9, 2026, 09:23 AM</div>
+  <div class="meta">Target: C:\Users\Lenovo\AppData\Local\Temp\opencode\ai-review-validation\baseclaude | Jul 9, 2026, 05:39 PM</div>
 </header>
 
       <div class="summary">
-      <div class="summary-card"><div class="value">2</div><div class="label">Files</div></div>
-      <div class="summary-card"><div class="value">2</div><div class="label">Findings</div></div>
+      <div class="summary-card"><div class="value">199</div><div class="label">Files</div></div>
+      <div class="summary-card"><div class="value">13</div><div class="label">Findings</div></div>
       <div class="summary-card"><div class="value">~$0.0000</div><div class="label">Cost</div></div>
-      <div class="summary-card"><div class="value">Jul 9, 2026, 09:23 AM</div><div class="label">Scanned</div></div>
+      <div class="summary-card"><div class="value">Jul 9, 2026, 05:39 PM</div><div class="label">Scanned</div></div>
     </div>
-      <div class="categories"><span class="badge" style="background:#e67e22">deprecated-api: 2</span><span class="badge" style="background:#bdc3c7">hallucinated-package: 0</span><span class="badge" style="background:#bdc3c7">security: 0</span><span class="badge" style="background:#bdc3c7">complexity: 0</span><span class="badge" style="background:#bdc3c7">convention: 0</span></div>
+      <div class="categories"><span class="badge" style="background:#e74c3c">security: 13</span><span class="badge" style="background:#bdc3c7">deprecated-api: 0</span><span class="badge" style="background:#bdc3c7">hallucinated-package: 0</span><span class="badge" style="background:#bdc3c7">complexity: 0</span><span class="badge" style="background:#bdc3c7">convention: 0</span></div>
       <div class="file-group">
         <div class="file-header">
-          <span class="file-path" id="file-dirty-ts">dirty.ts</span>
-          <span class="file-count">2 findings</span>
+          <span class="file-path" id="file-scripts-modules-cache-manager-js">scripts/modules/cache-manager.js</span>
+          <span class="file-count">1 finding</span>
         </div>
-        <div class="severity-title warning">Warning (2)</div>
+        <div class="severity-title warning">Warning (1)</div>
 <div class="finding-card">
       <div class="finding-header">
-        <span class="cat-badge" style="background:#e67e22">deprecated-api</span>
-        <span class="finding-id">DEPRECATED_URL_PARSE</span>
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_WEAK_CRYPTO</span>
       </div>
-      <div class="finding-title">url.parse() is deprecated</div>
-      <div class="finding-message">url.parse() was deprecated in Node.js 11.0. It has known security issues with certain inputs.</div>
+      <div class="finding-title">Use of weak cryptographic algorithm</div>
+      <div class="finding-message">MD5 and SHA-1 are cryptographically broken and should not be used for security purposes.</div>
       <div class="finding-location">
-        <a href="#file-dirty-ts">dirty.ts:3:16</a>
+        <a href="#file-scripts-modules-cache-manager-js">scripts/modules/cache-manager.js:128:19</a>
       </div>
-      <div class="finding-suggestion">💡 Use `new URL(urlString)` instead. The URL class is globally available in Node.js 10+ and all browsers.</div>
+      <div class="finding-suggestion">💡 Use SHA-256 or stronger for security purposes. MD5/SHA1 are broken for cryptographic use.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+      </div>
+<div class="file-group">
+        <div class="file-header">
+          <span class="file-path" id="file-scripts-modules-generate-module-js">scripts/modules/generate-module.js</span>
+          <span class="file-count">12 findings</span>
+        </div>
+        <div class="severity-title error">Error (12)</div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_SQL_CONCAT</span>
+      </div>
+      <div class="finding-title">SQL query built with string concatenation</div>
+      <div class="finding-message">SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.</div>
+      <div class="finding-location">
+        <a href="#file-scripts-modules-generate-module-js">scripts/modules/generate-module.js:611:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Use parameterized queries or a query builder. Never interpolate user input into SQL strings.</div>
       <div class="finding-source">Source: static</div>
     </div>
 <div class="finding-card">
       <div class="finding-header">
-        <span class="cat-badge" style="background:#e67e22">deprecated-api</span>
-        <span class="finding-id">DEPRECATED_URL_RESOLVE</span>
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_SQL_CONCAT</span>
       </div>
-      <div class="finding-title">url.resolve() is deprecated</div>
-      <div class="finding-message">url.resolve() was deprecated in Node.js 11.0 alongside url.parse().</div>
+      <div class="finding-title">SQL query built with string concatenation</div>
+      <div class="finding-message">SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.</div>
       <div class="finding-location">
-        <a href="#file-dirty-ts">dirty.ts:4:18</a>
+        <a href="#file-scripts-modules-generate-module-js">scripts/modules/generate-module.js:621:1</a>
       </div>
-      <div class="finding-suggestion">💡 Use `new URL(resolved, base)` or the WHATWG URL constructor instead.</div>
+      <div class="finding-suggestion">💡 Use parameterized queries or a query builder. Never interpolate user input into SQL strings.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_SQL_CONCAT</span>
+      </div>
+      <div class="finding-title">SQL query built with string concatenation</div>
+      <div class="finding-message">SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.</div>
+      <div class="finding-location">
+        <a href="#file-scripts-modules-generate-module-js">scripts/modules/generate-module.js:622:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Use parameterized queries or a query builder. Never interpolate user input into SQL strings.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_SQL_CONCAT</span>
+      </div>
+      <div class="finding-title">SQL query built with string concatenation</div>
+      <div class="finding-message">SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.</div>
+      <div class="finding-location">
+        <a href="#file-scripts-modules-generate-module-js">scripts/modules/generate-module.js:633:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Use parameterized queries or a query builder. Never interpolate user input into SQL strings.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_SQL_CONCAT</span>
+      </div>
+      <div class="finding-title">SQL query built with string concatenation</div>
+      <div class="finding-message">SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.</div>
+      <div class="finding-location">
+        <a href="#file-scripts-modules-generate-module-js">scripts/modules/generate-module.js:634:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Use parameterized queries or a query builder. Never interpolate user input into SQL strings.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_SQL_CONCAT</span>
+      </div>
+      <div class="finding-title">SQL query built with string concatenation</div>
+      <div class="finding-message">SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.</div>
+      <div class="finding-location">
+        <a href="#file-scripts-modules-generate-module-js">scripts/modules/generate-module.js:635:10</a>
+      </div>
+      <div class="finding-suggestion">💡 Use parameterized queries or a query builder. Never interpolate user input into SQL strings.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_SQL_CONCAT</span>
+      </div>
+      <div class="finding-title">SQL query built with string concatenation</div>
+      <div class="finding-message">SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.</div>
+      <div class="finding-location">
+        <a href="#file-scripts-modules-generate-module-js">scripts/modules/generate-module.js:640:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Use parameterized queries or a query builder. Never interpolate user input into SQL strings.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_SQL_CONCAT</span>
+      </div>
+      <div class="finding-title">SQL query built with string concatenation</div>
+      <div class="finding-message">SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.</div>
+      <div class="finding-location">
+        <a href="#file-scripts-modules-generate-module-js">scripts/modules/generate-module.js:679:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Use parameterized queries or a query builder. Never interpolate user input into SQL strings.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_SQL_CONCAT</span>
+      </div>
+      <div class="finding-title">SQL query built with string concatenation</div>
+      <div class="finding-message">SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.</div>
+      <div class="finding-location">
+        <a href="#file-scripts-modules-generate-module-js">scripts/modules/generate-module.js:682:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Use parameterized queries or a query builder. Never interpolate user input into SQL strings.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_SQL_CONCAT</span>
+      </div>
+      <div class="finding-title">SQL query built with string concatenation</div>
+      <div class="finding-message">SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.</div>
+      <div class="finding-location">
+        <a href="#file-scripts-modules-generate-module-js">scripts/modules/generate-module.js:685:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Use parameterized queries or a query builder. Never interpolate user input into SQL strings.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_SQL_CONCAT</span>
+      </div>
+      <div class="finding-title">SQL query built with string concatenation</div>
+      <div class="finding-message">SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.</div>
+      <div class="finding-location">
+        <a href="#file-scripts-modules-generate-module-js">scripts/modules/generate-module.js:688:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Use parameterized queries or a query builder. Never interpolate user input into SQL strings.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_SQL_CONCAT</span>
+      </div>
+      <div class="finding-title">SQL query built with string concatenation</div>
+      <div class="finding-message">SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.</div>
+      <div class="finding-location">
+        <a href="#file-scripts-modules-generate-module-js">scripts/modules/generate-module.js:691:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Use parameterized queries or a query builder. Never interpolate user input into SQL strings.</div>
       <div class="finding-source">Source: static</div>
     </div>
       </div>

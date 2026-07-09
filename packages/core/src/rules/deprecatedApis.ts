@@ -5,6 +5,7 @@ import type { Language, Finding, Rule, Severity } from '../types';
 interface DatabaseEntry {
   id: string;
   pattern: string;
+  patternType?: 'substring' | 'regex';
   title: string;
   message: string;
   suggestion: string;
@@ -100,10 +101,26 @@ function isInComment(index: number, regions: CommentRegion[]): boolean {
 
 function findAllOccurrences(
   content: string,
-  pattern: string,
+  entry: DatabaseEntry,
   commentRegions: CommentRegion[],
 ): { index: number; line: number; column: number }[] {
   const results: { index: number; line: number; column: number }[] = [];
+
+  if (entry.patternType === 'regex') {
+    const re = new RegExp(entry.pattern, 'g');
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(content)) !== null) {
+      if (!isInComment(m.index, commentRegions)) {
+        const lineStart = content.lastIndexOf('\n', m.index) + 1;
+        const line = content.slice(0, m.index).split('\n').length;
+        const column = m.index - lineStart + 1;
+        results.push({ index: m.index, line, column });
+      }
+    }
+    return results;
+  }
+
+  const pattern = entry.pattern;
   let searchFrom = 0;
 
   while (true) {
@@ -142,7 +159,7 @@ export function createDeprecatedApiRule(): Rule {
       const findings: Finding[] = [];
 
       for (const entry of entries) {
-        const occurrences = findAllOccurrences(content, entry.pattern, commentRegions);
+        const occurrences = findAllOccurrences(content, entry, commentRegions);
         for (const occ of occurrences) {
           findings.push({
             id: entry.id,

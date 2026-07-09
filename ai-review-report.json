@@ -1,57 +1,1173 @@
 {
-  "target": "./fixtures/test-basic",
-  "scannedAt": "2026-07-09T06:23:02.298Z",
-  "filesReviewed": 2,
+  "target": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\opencode\\ai-review-validation\\baseclaude",
+  "scannedAt": "2026-07-09T14:39:05.926Z",
+  "filesReviewed": 199,
   "files": [
     {
-      "file": "clean.ts",
+      "file": ".commitlintrc.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": ".eslintrc.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": ".lintstagedrc.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": ".modules/schema.ts",
       "language": "typescript",
       "findings": []
     },
     {
-      "file": "dirty.ts",
+      "file": ".modules/templates/test-template.ts",
       "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "final-fixes.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "jest.config.modules.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "jest.setup.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "modules/data/user-data/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/data/user-data/tests/schemas/users.schema.test.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/orders-logic/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/orders-logic/src/repositories/orders-logic.repository.interface.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/orders-logic/src/services/orders-logic.service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/orders-logic/src/types/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/orders-logic/src/validations/orders-logic.validation.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/payments-logic/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/payments-logic/src/repositories/payments-logic.repository.interface.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/payments-logic/src/services/payments-logic.service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/payments-logic/src/types/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/payments-logic/src/validations/payments-logic.validation.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/products-logic/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/products-logic/src/repositories/products-logic.repository.interface.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/products-logic/src/services/products-logic.service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/products-logic/src/types/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/products-logic/src/validations/products-logic.validation.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/user-logic/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/user-logic/src/repositories/user.repository.interface.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/user-logic/src/services/user.service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/user-logic/src/types/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/user-logic/src/validations/user.validation.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/user-logic/tests/services/UserService.test.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/logic/user-logic/tests/validations/UserValidation.test.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/orders-ui/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/orders-ui/src/components/OrdersUiList.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/orders-ui/src/hooks/useOrdersUi.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/orders-ui/src/stores/orders-ui.store.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/orders-ui/src/types/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/payments-ui/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/payments-ui/src/components/PaymentsUiList.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/payments-ui/src/hooks/usePaymentsUi.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/payments-ui/src/stores/payments-ui.store.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/payments-ui/src/types/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/products-ui/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/products-ui/src/components/ProductsUiList.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/products-ui/src/hooks/useProductsUi.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/products-ui/src/stores/products-ui.store.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/products-ui/src/types/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/user-profile-ui/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/user-profile-ui/src/components/UserList.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/user-profile-ui/src/hooks/useUser.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/user-profile-ui/src/hooks/useUsers.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/user-profile-ui/src/stores/user.store.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/user-profile-ui/src/types/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/user-profile-ui/tests/components/UserList.test.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/user-profile-ui/tests/hooks/useUser.test.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/user-profile-ui/tests/hooks/useUsers.test.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "modules/ui/user-profile-ui/tests/stores/user.store.test.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "next.config.mjs",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "playwright.config.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "postcss.config.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "revert-user-imports.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/detect-package-manager.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/fix-batch2-references.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/fix-imports.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/fix-interface-references.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/generate-feature.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/modules/cache-manager.js",
+      "language": "javascript",
       "findings": [
         {
-          "id": "DEPRECATED_URL_PARSE",
-          "category": "deprecated-api",
+          "id": "SEC_WEAK_CRYPTO",
+          "category": "security",
           "severity": "warning",
-          "title": "url.parse() is deprecated",
-          "message": "url.parse() was deprecated in Node.js 11.0. It has known security issues with certain inputs.",
-          "suggestion": "Use `new URL(urlString)` instead. The URL class is globally available in Node.js 10+ and all browsers.",
-          "file": "dirty.ts",
-          "line": 3,
-          "column": 16,
-          "source": "static",
-          "ruleUrl": "https://nodejs.org/api/url.html#urlparseurlstring-parsequerystring-slashesdenotehost"
-        },
-        {
-          "id": "DEPRECATED_URL_RESOLVE",
-          "category": "deprecated-api",
-          "severity": "warning",
-          "title": "url.resolve() is deprecated",
-          "message": "url.resolve() was deprecated in Node.js 11.0 alongside url.parse().",
-          "suggestion": "Use `new URL(resolved, base)` or the WHATWG URL constructor instead.",
-          "file": "dirty.ts",
-          "line": 4,
-          "column": 18,
-          "source": "static",
-          "ruleUrl": "https://nodejs.org/api/url.html#urlresolvefrom-to"
+          "title": "Use of weak cryptographic algorithm",
+          "message": "MD5 and SHA-1 are cryptographically broken and should not be used for security purposes.",
+          "suggestion": "Use SHA-256 or stronger for security purposes. MD5/SHA1 are broken for cryptographic use.",
+          "file": "scripts/modules/cache-manager.js",
+          "line": 128,
+          "column": 19,
+          "source": "static"
         }
       ]
+    },
+    {
+      "file": "scripts/modules/cli.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/modules/discover.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/modules/generate-module.js",
+      "language": "javascript",
+      "findings": [
+        {
+          "id": "SEC_SQL_CONCAT",
+          "category": "security",
+          "severity": "error",
+          "title": "SQL query built with string concatenation",
+          "message": "SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.",
+          "suggestion": "Use parameterized queries or a query builder. Never interpolate user input into SQL strings.",
+          "file": "scripts/modules/generate-module.js",
+          "line": 611,
+          "column": 1,
+          "source": "static"
+        },
+        {
+          "id": "SEC_SQL_CONCAT",
+          "category": "security",
+          "severity": "error",
+          "title": "SQL query built with string concatenation",
+          "message": "SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.",
+          "suggestion": "Use parameterized queries or a query builder. Never interpolate user input into SQL strings.",
+          "file": "scripts/modules/generate-module.js",
+          "line": 621,
+          "column": 1,
+          "source": "static"
+        },
+        {
+          "id": "SEC_SQL_CONCAT",
+          "category": "security",
+          "severity": "error",
+          "title": "SQL query built with string concatenation",
+          "message": "SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.",
+          "suggestion": "Use parameterized queries or a query builder. Never interpolate user input into SQL strings.",
+          "file": "scripts/modules/generate-module.js",
+          "line": 622,
+          "column": 1,
+          "source": "static"
+        },
+        {
+          "id": "SEC_SQL_CONCAT",
+          "category": "security",
+          "severity": "error",
+          "title": "SQL query built with string concatenation",
+          "message": "SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.",
+          "suggestion": "Use parameterized queries or a query builder. Never interpolate user input into SQL strings.",
+          "file": "scripts/modules/generate-module.js",
+          "line": 633,
+          "column": 1,
+          "source": "static"
+        },
+        {
+          "id": "SEC_SQL_CONCAT",
+          "category": "security",
+          "severity": "error",
+          "title": "SQL query built with string concatenation",
+          "message": "SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.",
+          "suggestion": "Use parameterized queries or a query builder. Never interpolate user input into SQL strings.",
+          "file": "scripts/modules/generate-module.js",
+          "line": 634,
+          "column": 1,
+          "source": "static"
+        },
+        {
+          "id": "SEC_SQL_CONCAT",
+          "category": "security",
+          "severity": "error",
+          "title": "SQL query built with string concatenation",
+          "message": "SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.",
+          "suggestion": "Use parameterized queries or a query builder. Never interpolate user input into SQL strings.",
+          "file": "scripts/modules/generate-module.js",
+          "line": 635,
+          "column": 10,
+          "source": "static"
+        },
+        {
+          "id": "SEC_SQL_CONCAT",
+          "category": "security",
+          "severity": "error",
+          "title": "SQL query built with string concatenation",
+          "message": "SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.",
+          "suggestion": "Use parameterized queries or a query builder. Never interpolate user input into SQL strings.",
+          "file": "scripts/modules/generate-module.js",
+          "line": 640,
+          "column": 1,
+          "source": "static"
+        },
+        {
+          "id": "SEC_SQL_CONCAT",
+          "category": "security",
+          "severity": "error",
+          "title": "SQL query built with string concatenation",
+          "message": "SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.",
+          "suggestion": "Use parameterized queries or a query builder. Never interpolate user input into SQL strings.",
+          "file": "scripts/modules/generate-module.js",
+          "line": 679,
+          "column": 1,
+          "source": "static"
+        },
+        {
+          "id": "SEC_SQL_CONCAT",
+          "category": "security",
+          "severity": "error",
+          "title": "SQL query built with string concatenation",
+          "message": "SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.",
+          "suggestion": "Use parameterized queries or a query builder. Never interpolate user input into SQL strings.",
+          "file": "scripts/modules/generate-module.js",
+          "line": 682,
+          "column": 1,
+          "source": "static"
+        },
+        {
+          "id": "SEC_SQL_CONCAT",
+          "category": "security",
+          "severity": "error",
+          "title": "SQL query built with string concatenation",
+          "message": "SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.",
+          "suggestion": "Use parameterized queries or a query builder. Never interpolate user input into SQL strings.",
+          "file": "scripts/modules/generate-module.js",
+          "line": 685,
+          "column": 1,
+          "source": "static"
+        },
+        {
+          "id": "SEC_SQL_CONCAT",
+          "category": "security",
+          "severity": "error",
+          "title": "SQL query built with string concatenation",
+          "message": "SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.",
+          "suggestion": "Use parameterized queries or a query builder. Never interpolate user input into SQL strings.",
+          "file": "scripts/modules/generate-module.js",
+          "line": 688,
+          "column": 1,
+          "source": "static"
+        },
+        {
+          "id": "SEC_SQL_CONCAT",
+          "category": "security",
+          "severity": "error",
+          "title": "SQL query built with string concatenation",
+          "message": "SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.",
+          "suggestion": "Use parameterized queries or a query builder. Never interpolate user input into SQL strings.",
+          "file": "scripts/modules/generate-module.js",
+          "line": 691,
+          "column": 1,
+          "source": "static"
+        }
+      ]
+    },
+    {
+      "file": "scripts/modules/metrics.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/modules/quality-check.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/modules/suggestions.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/rename-batch2-definitions.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/rename-interfaces.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/setup-all.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/setup-hooks.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/setup-husky.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/setup-mcp.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/setup-spec-kit.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/setup.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "scripts/update-all-references.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "src/app/error.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/app/layout.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/app/loading.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/app/page.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/config/env.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/config/routes.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/features/users/components/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/features/users/components/UserList.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/features/users/hooks/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/features/users/hooks/useUser.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/features/users/hooks/useUsers.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/features/users/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/features/users/services/user.service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/features/users/stores/user.store.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/user.types.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/middleware.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/components/providers/auth-provider.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/components/providers/database-provider.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/components/providers/rbac-provider.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/components/providers/root-provider.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/components/providers/theme-provider.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/components/rbac/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/components/rbac/RBACGuard.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/components/rbac/SpecializedGuards.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/components/rbac/UtilityGates.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/components/ui/button.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/components/ui/card.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/components/ui/dropdown-menu.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/components/ui/theme-selector.tsx",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/hooks/use-auth.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/hooks/use-local-storage.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/hooks/use-mounted.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/hooks/use-rbac.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/api/api.service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/api/api.types.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/api/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/api/interceptors/auth.interceptor.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/api/interceptors/error.interceptor.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/api/interceptors/interceptor-manager.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/api/interceptors/logging.interceptor.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/api/operations/http-methods.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/api/operations/request-executor.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/api/operations/request-validator.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/auth/auth-factory.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/auth/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/auth/providers/clerk-auth-provider.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/auth/providers/operations/auth-operations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/auth/providers/operations/session-operations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/auth/providers/operations/state-manager.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/auth/providers/supabase-auth-provider.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/base.service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/database/database-factory.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/database/example-user-service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/database/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/database/providers/supabase/crud-operations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/database/providers/supabase/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/database/providers/supabase/realtime-handler.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/database/providers/supabase/storage-operations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/database/providers/supabase/utility-operations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/database/providers/supabase-database-provider.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/dependency-container.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/logger/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/logger/logger.service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/logger/logger.types.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/logger/providers/console-logger.provider.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/payments/payment-factory.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/payments/providers/operations/checkout-operations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/payments/providers/operations/customer-operations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/payments/providers/operations/payment-operations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/payments/providers/operations/product-operations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/payments/providers/operations/subscription-operations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/payments/providers/operations/webhook-operations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/payments/providers/stripe-payment-provider.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/rbac/providers/supabase-rbac-provider.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/rbac/rbac-factory.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/setup.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/storage/cross-tab-sync.service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/storage/encryption.service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/storage/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/storage/operations/cleanup-strategies.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/storage/operations/compression.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/storage/operations/core-operations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/storage/operations/secure-operations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/storage/providers/local-storage.provider.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/storage/providers/memory.provider.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/storage/providers/session-storage.provider.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/storage/storage-service-impl.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/storage/storage.service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/storage/storage.types.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/supabase.service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/theme/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/theme/theme-presets.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/theme/theme-validator.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/theme/ThemeFactory.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/services/validation.service.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/stores/auth.store.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/stores/index.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/stores/session.store.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/stores/ui.store.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/auth.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/database.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/global.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/payments.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/rbac.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/theme.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/utils/constants.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/utils/fonts.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/utils/metadata.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/utils/supabase.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/utils/utils.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "src/shared/utils/validations.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "tailwind.config.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "tests/example.spec.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "tests/test-template.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "__mocks__/fileMock.js",
+      "language": "javascript",
+      "findings": []
+    },
+    {
+      "file": "__mocks__/styleMock.js",
+      "language": "javascript",
+      "findings": []
     }
   ],
-  "totalFindings": 2,
+  "totalFindings": 13,
   "byCategory": {
-    "deprecated-api": 2,
+    "deprecated-api": 0,
     "hallucinated-package": 0,
-    "security": 0,
+    "security": 13,
     "complexity": 0,
     "convention": 0
   },
   "bySeverity": {
-    "error": 0,
-    "warning": 2,
+    "error": 12,
+    "warning": 1,
     "info": 0
   },
   "totalTokensUsed": 0,

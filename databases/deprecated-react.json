@@ -46,7 +46,8 @@
   },
   {
     "id": "DEPRECATED_STRING_REFS",
-    "pattern": "ref=\"",
+    "pattern": "(?<=^|[\\s{}(\\[])(ref=\"[^\"]*\")",
+    "patternType": "regex",
     "title": "String refs are deprecated",
     "message": "String refs (e.g., ref=\"myRef\") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.",
     "suggestion": "Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.",
