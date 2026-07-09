@@ -65,19 +65,100 @@ header{padding:16px}
 <div class="container">
 <header>
   <h1>ai-review — AI Code Review</h1>
-  <div class="meta">Target: fixtures/corpus/clean-typescript | Jul 9, 2026, 11:15 PM</div>
+  <div class="meta">Target: fixtures/corpus/python-issues | Jul 9, 2026, 11:38 PM</div>
 </header>
 
       <div class="summary">
       <div class="summary-card"><div class="value">1</div><div class="label">Files</div></div>
-      <div class="summary-card"><div class="value">0</div><div class="label">Findings</div></div>
+      <div class="summary-card"><div class="value">6</div><div class="label">Findings</div></div>
       <div class="summary-card"><div class="value">~$0.0000</div><div class="label">Cost</div></div>
-      <div class="summary-card"><div class="value">Jul 9, 2026, 11:15 PM</div><div class="label">Scanned</div></div>
+      <div class="summary-card"><div class="value">Jul 9, 2026, 11:38 PM</div><div class="label">Scanned</div></div>
     </div>
-      <div style="text-align:center;padding:60px 20px;background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.08)">
-        <div style="font-size:48px;margin-bottom:16px">✓</div>
-        <h2 style="font-size:20px;color:#27ae60">No issues found</h2>
-        <p style="color:#7f8c8d;margin-top:8px">This code looks clean.</p>
+      <div class="categories"><span class="badge" style="background:#e67e22">deprecated-api: 1</span><span class="badge" style="background:#8e44ad">hallucinated-package: 3</span><span class="badge" style="background:#e74c3c">security: 2</span><span class="badge" style="background:#bdc3c7">complexity: 0</span><span class="badge" style="background:#bdc3c7">convention: 0</span></div>
+      <div class="file-group">
+        <div class="file-header">
+          <span class="file-path" id="file-index-py">index.py</span>
+          <span class="file-count">6 findings</span>
+        </div>
+        <div class="severity-title error">Error (6)</div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e67e22">deprecated-api</span>
+        <span class="finding-id">DEPRECATED_OPTPARSE</span>
+      </div>
+      <div class="finding-title">optparse module is deprecated</div>
+      <div class="finding-message">The optparse module was deprecated in Python 2.7 and removed in Python 3. It has been superseded by argparse, which provides a more powerful and flexible command-line argument parsing interface.</div>
+      <div class="finding-location">
+        <a href="#file-index-py">index.py:1:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Use `import argparse` instead. The argparse module provides the same functionality with a more consistent API, automatic help generation, and better error messages.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_PICKLE</span>
+      </div>
+      <div class="finding-title">Deserializing untrusted pickle data</div>
+      <div class="finding-message">pickle.loads() and pickle.load() can execute arbitrary code when deserializing untrusted data.</div>
+      <div class="finding-location">
+        <a href="#file-index-py">index.py:7:13</a>
+      </div>
+      <div class="finding-suggestion">💡 Never deserialize pickle data from untrusted sources. Use JSON or a safe serialization format instead.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#e74c3c">security</span>
+        <span class="finding-id">SEC_SHELL_INJECT</span>
+      </div>
+      <div class="finding-title">Shell injection via subprocess with shell=True</div>
+      <div class="finding-message">Using shell=True with subprocess functions can lead to shell injection if the command string contains user-controlled input.</div>
+      <div class="finding-location">
+        <a href="#file-index-py">index.py:11:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Use shell=False with a list of arguments, or sanitize input with shlex.quote().</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#8e44ad">hallucinated-package</span>
+        <span class="finding-id">HALLUCINATED_PACKAGE</span>
+      </div>
+      <div class="finding-title">Package does not exist on PyPI</div>
+      <div class="finding-message">The package 'optparse' does not exist on the PyPI registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.</div>
+      <div class="finding-location">
+        <a href="#file-index-py">index.py:1:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Verify the package name at https://pypi.org/optparse. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#8e44ad">hallucinated-package</span>
+        <span class="finding-id">HALLUCINATED_PACKAGE</span>
+      </div>
+      <div class="finding-title">Package does not exist on PyPI</div>
+      <div class="finding-message">The package 'pickle' does not exist on the PyPI registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.</div>
+      <div class="finding-location">
+        <a href="#file-index-py">index.py:3:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Verify the package name at https://pypi.org/pickle. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
+<div class="finding-card">
+      <div class="finding-header">
+        <span class="cat-badge" style="background:#8e44ad">hallucinated-package</span>
+        <span class="finding-id">HALLUCINATED_PACKAGE</span>
+      </div>
+      <div class="finding-title">Package does not exist on PyPI</div>
+      <div class="finding-message">The package 'subprocess' does not exist on the PyPI registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.</div>
+      <div class="finding-location">
+        <a href="#file-index-py">index.py:9:1</a>
+      </div>
+      <div class="finding-suggestion">💡 Verify the package name at https://pypi.org/subprocess. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.</div>
+      <div class="finding-source">Source: static</div>
+    </div>
       </div>
     
 <footer>Generated by <strong>ai-review</strong></footer>

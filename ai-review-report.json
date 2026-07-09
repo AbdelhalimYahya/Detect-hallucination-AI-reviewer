@@ -1,24 +1,98 @@
 {
-  "target": "fixtures/corpus/clean-typescript",
-  "scannedAt": "2026-07-09T20:15:31.957Z",
+  "target": "fixtures/corpus/python-issues",
+  "scannedAt": "2026-07-09T20:38:27.930Z",
   "filesReviewed": 1,
   "files": [
     {
-      "file": "index.ts",
-      "language": "typescript",
-      "findings": []
+      "file": "index.py",
+      "language": "python",
+      "findings": [
+        {
+          "id": "DEPRECATED_OPTPARSE",
+          "category": "deprecated-api",
+          "severity": "error",
+          "title": "optparse module is deprecated",
+          "message": "The optparse module was deprecated in Python 2.7 and removed in Python 3. It has been superseded by argparse, which provides a more powerful and flexible command-line argument parsing interface.",
+          "suggestion": "Use `import argparse` instead. The argparse module provides the same functionality with a more consistent API, automatic help generation, and better error messages.",
+          "file": "index.py",
+          "line": 1,
+          "column": 1,
+          "source": "static",
+          "ruleUrl": "https://docs.python.org/3/library/argparse.html"
+        },
+        {
+          "id": "SEC_PICKLE",
+          "category": "security",
+          "severity": "error",
+          "title": "Deserializing untrusted pickle data",
+          "message": "pickle.loads() and pickle.load() can execute arbitrary code when deserializing untrusted data.",
+          "suggestion": "Never deserialize pickle data from untrusted sources. Use JSON or a safe serialization format instead.",
+          "file": "index.py",
+          "line": 7,
+          "column": 13,
+          "source": "static"
+        },
+        {
+          "id": "SEC_SHELL_INJECT",
+          "category": "security",
+          "severity": "error",
+          "title": "Shell injection via subprocess with shell=True",
+          "message": "Using shell=True with subprocess functions can lead to shell injection if the command string contains user-controlled input.",
+          "suggestion": "Use shell=False with a list of arguments, or sanitize input with shlex.quote().",
+          "file": "index.py",
+          "line": 11,
+          "column": 1,
+          "source": "static"
+        },
+        {
+          "id": "HALLUCINATED_PACKAGE",
+          "category": "hallucinated-package",
+          "severity": "error",
+          "title": "Package does not exist on PyPI",
+          "message": "The package 'optparse' does not exist on the PyPI registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.",
+          "suggestion": "Verify the package name at https://pypi.org/optparse. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.",
+          "file": "index.py",
+          "line": 1,
+          "column": 1,
+          "source": "static"
+        },
+        {
+          "id": "HALLUCINATED_PACKAGE",
+          "category": "hallucinated-package",
+          "severity": "error",
+          "title": "Package does not exist on PyPI",
+          "message": "The package 'pickle' does not exist on the PyPI registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.",
+          "suggestion": "Verify the package name at https://pypi.org/pickle. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.",
+          "file": "index.py",
+          "line": 3,
+          "column": 1,
+          "source": "static"
+        },
+        {
+          "id": "HALLUCINATED_PACKAGE",
+          "category": "hallucinated-package",
+          "severity": "error",
+          "title": "Package does not exist on PyPI",
+          "message": "The package 'subprocess' does not exist on the PyPI registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.",
+          "suggestion": "Verify the package name at https://pypi.org/subprocess. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.",
+          "file": "index.py",
+          "line": 9,
+          "column": 1,
+          "source": "static"
+        }
+      ]
     }
   ],
-  "totalFindings": 0,
+  "totalFindings": 6,
   "byCategory": {
-    "deprecated-api": 0,
-    "hallucinated-package": 0,
-    "security": 0,
+    "deprecated-api": 1,
+    "hallucinated-package": 3,
+    "security": 2,
     "complexity": 0,
     "convention": 0
   },
   "bySeverity": {
-    "error": 0,
+    "error": 6,
     "warning": 0,
     "info": 0
   },
