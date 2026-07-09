@@ -1,11 +1,58 @@
 {
-  "name": "@ai-review/vscode",
+  "name": "ai-review",
+  "displayName": "ai-review — AI Code Reviewer",
   "version": "0.1.0",
   "private": true,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "publisher": "your-publisher-id",
+  "description": "AI-powered code review for AI-generated code. Catches deprecated APIs, hallucinated packages, security issues, and unnecessary complexity.",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Linters"
+  ],
+  "keywords": [
+    "ai",
+    "code review",
+    "linter",
+    "deprecated",
+    "security"
+  ],
+  "license": "MIT",
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:javascript",
+    "onLanguage:python"
+  ],
+  "main": "./dist/extension.js",
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w"
+  },
+  "dependencies": {
+    "@ai-review/core": "^0.1.0",
+    "vscode-languageclient": "^9.0.0",
+    "vscode-languageserver": "^9.0.0",
+    "vscode-languageserver-textdocument": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0"
+  },
+  "contributes": {
+    "configuration": {
+      "title": "ai-review",
+      "properties": {
+        "ai-review.anthropicApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Anthropic API key for AI-powered code review"
+        },
+        "ai-review.model": {
+          "type": "string",
+          "default": "claude-haiku-4-5",
+          "description": "Anthropic model to use for AI checks"
+        }
+      }
+    }
   }
 }
