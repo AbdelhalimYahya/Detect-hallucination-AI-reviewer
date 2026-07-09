@@ -98,4 +98,49 @@ describe('reviewFileWithAI', () => {
     expect(result.findings).toEqual([]);
     expect(result.tokensUsed).toBe(0);
   });
+
+  it('includes specific complexity patterns in the prompt', async () => {
+    mockClient.messages.create.mockResolvedValue(makeResponse(JSON.stringify({ findings: [] }), 10, 5));
+
+    await call();
+
+    const callArgs = mockClient.messages.create.mock.calls[0][0];
+    const systemMsg = callArgs.system;
+    const userMsg = callArgs.messages[0].content;
+
+    expect(systemMsg).toContain('senior software engineer');
+    expect(systemMsg).toContain('JSON object');
+
+    expect(userMsg).toContain('Manual iteration');
+    expect(userMsg).toContain('Deeply nested conditionals');
+    expect(userMsg).toContain('Sequential independent async');
+    expect(userMsg).toContain('Unnecessary abstraction');
+    expect(userMsg).toContain('Promise.all');
+    expect(userMsg).toContain('empty findings array');
+  });
+
+  it('does not include complexity instructions when complexity check is disabled', async () => {
+    mockClient.messages.create.mockResolvedValue(makeResponse(JSON.stringify({ findings: [] }), 10, 5));
+
+    await call({ enabledChecks: { complexity: false, conventions: false } });
+
+    expect(mockClient.messages.create).not.toHaveBeenCalled();
+  });
+
+  it('includes convention instructions when conventions check is enabled with conventions list', async () => {
+    mockClient.messages.create.mockResolvedValue(makeResponse(JSON.stringify({ findings: [] }), 10, 5));
+
+    await call({
+      enabledChecks: { complexity: false, conventions: true },
+      config: {
+        ...baseConfig,
+        conventions: ['Always use async/await', 'No console.log'],
+      },
+    });
+
+    const callArgs = mockClient.messages.create.mock.calls[0][0];
+    const userMsg = callArgs.messages[0].content;
+    expect(userMsg).toContain('Always use async/await');
+    expect(userMsg).toContain('No console.log');
+  });
 });
