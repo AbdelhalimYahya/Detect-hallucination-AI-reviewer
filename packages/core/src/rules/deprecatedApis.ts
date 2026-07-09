@@ -15,9 +15,17 @@ interface DatabaseEntry {
 
 function getDbPath(): string {
   if (typeof __dirname !== 'undefined') {
-    const colocated = path.resolve(__dirname, '..', 'databases');
-    if (fs.existsSync(colocated)) return colocated;
-    return path.resolve(__dirname, '..', '..', '..', '..', 'databases');
+    const candidates = [
+      // Relative to core dist: packages/core/dist/../databases
+      path.resolve(__dirname, '..', 'databases'),
+      // Monorepo root: packages/core/dist/rules/../../../../databases
+      path.resolve(__dirname, '..', '..', '..', '..', 'databases'),
+      // npm install: node_modules/ai-review/node_modules/@ai-review/core/dist/rules/../../../../../databases
+      path.resolve(__dirname, '..', '..', '..', '..', '..', 'databases'),
+    ];
+    for (const c of candidates) {
+      if (fs.existsSync(c)) return c;
+    }
   }
   return path.resolve(process.cwd(), 'databases');
 }
