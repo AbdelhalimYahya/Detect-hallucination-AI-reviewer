@@ -1,0 +1,59 @@
+{
+  "target": "./fixtures/test-basic",
+  "scannedAt": "2026-07-09T06:12:19.945Z",
+  "filesReviewed": 2,
+  "files": [
+    {
+      "file": "clean.ts",
+      "language": "typescript",
+      "findings": []
+    },
+    {
+      "file": "dirty.ts",
+      "language": "typescript",
+      "findings": [
+        {
+          "id": "DEPRECATED_URL_PARSE",
+          "category": "deprecated-api",
+          "severity": "warning",
+          "title": "url.parse() is deprecated",
+          "message": "url.parse() was deprecated in Node.js 11.0. It has known security issues with certain inputs.",
+          "suggestion": "Use `new URL(urlString)` instead. The URL class is globally available in Node.js 10+ and all browsers.",
+          "file": "dirty.ts",
+          "line": 3,
+          "column": 16,
+          "source": "static",
+          "ruleUrl": "https://nodejs.org/api/url.html#urlparseurlstring-parsequerystring-slashesdenotehost"
+        },
+        {
+          "id": "DEPRECATED_URL_RESOLVE",
+          "category": "deprecated-api",
+          "severity": "warning",
+          "title": "url.resolve() is deprecated",
+          "message": "url.resolve() was deprecated in Node.js 11.0 alongside url.parse().",
+          "suggestion": "Use `new URL(resolved, base)` or the WHATWG URL constructor instead.",
+          "file": "dirty.ts",
+          "line": 4,
+          "column": 18,
+          "source": "static",
+          "ruleUrl": "https://nodejs.org/api/url.html#urlresolvefrom-to"
+        }
+      ]
+    }
+  ],
+  "totalFindings": 2,
+  "byCategory": {
+    "deprecated-api": 2,
+    "hallucinated-package": 0,
+    "security": 0,
+    "complexity": 0,
+    "convention": 0
+  },
+  "bySeverity": {
+    "error": 0,
+    "warning": 2,
+    "info": 0
+  },
+  "totalTokensUsed": 0,
+  "estimatedCostUsd": 0
+}
