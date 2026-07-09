@@ -11,5 +11,6 @@ export type {
 
 export { loadConfig, generateDefaultConfig } from './config';
 export { walkFiles } from './scanner/fileWalker';
+export { runReview } from './scanner/runReview';
 export { ResultCache } from './cache/resultCache';
 export { reviewFileWithAI } from './ai/batchCaller';
