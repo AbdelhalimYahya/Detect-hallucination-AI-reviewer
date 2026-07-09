@@ -1,0 +1,218 @@
+[
+  {
+    "id": "DEPRECATED_URL_PARSE",
+    "pattern": "url.parse(",
+    "title": "url.parse() is deprecated",
+    "message": "url.parse() was deprecated in Node.js 11.0. It has known security issues with certain inputs.",
+    "suggestion": "Use `new URL(urlString)` instead. The URL class is globally available in Node.js 10+ and all browsers.",
+    "docsUrl": "https://nodejs.org/api/url.html#urlparseurlstring-parsequerystring-slashesdenotehost",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_URL_RESOLVE",
+    "pattern": "url.resolve(",
+    "title": "url.resolve() is deprecated",
+    "message": "url.resolve() was deprecated in Node.js 11.0 alongside url.parse().",
+    "suggestion": "Use `new URL(resolved, base)` or the WHATWG URL constructor instead.",
+    "docsUrl": "https://nodejs.org/api/url.html#urlresolvefrom-to",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_NEW_BUFFER",
+    "pattern": "new Buffer(",
+    "title": "new Buffer() is deprecated",
+    "message": "new Buffer() is deprecated since Node.js 6.0 due to security and performance concerns. Buffer() with no arguments, a number argument, or a string argument can produce inconsistent behavior.",
+    "suggestion": "Use `Buffer.from()`, `Buffer.alloc()`, or `Buffer.allocUnsafe()` instead of the new Buffer() constructor.",
+    "docsUrl": "https://nodejs.org/api/buffer.html#static-method-bufferfromarraybuffer-byteoffset-length",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_PUNYCODE_REQUIRE",
+    "pattern": "require('punycode')",
+    "title": "punycode module moved to userland",
+    "message": "The built-in punycode module was deprecated in Node.js 7.0 and moved to userland. Internal use by Node.js does not guarantee API stability.",
+    "suggestion": "Install and require the `punycode` package from npm instead, or use `Intl.URLParser` for URL operations.",
+    "docsUrl": "https://nodejs.org/api/punycode.html",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_QUERYSTRING",
+    "pattern": "require('querystring')",
+    "title": "querystring module is deprecated",
+    "message": "The querystring module was deprecated in Node.js 21.0 in favor of URLSearchParams, which is available globally and handles encoding more correctly.",
+    "suggestion": "Use the global `URLSearchParams` class instead. It provides the same functionality with better spec compliance.",
+    "docsUrl": "https://nodejs.org/api/querystring.html",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_FS_EXISTS",
+    "pattern": "fs.exists(",
+    "title": "fs.exists() is deprecated",
+    "message": "fs.exists() is deprecated since Node.js 1.0 due to its callback-based API that does not follow the standard Node.js convention of (err, result).",
+    "suggestion": "Use `fs.access()` to check file existence, or `fs.stat()` to get file metadata. For checking if a file exists before opening, try opening it and handle the ENOENT error.",
+    "docsUrl": "https://nodejs.org/api/fs.html#fsexistspath-callback",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_DOMAIN_MODULE",
+    "pattern": "require('domain')",
+    "title": "domain module is deprecated",
+    "message": "The domain module was deprecated in Node.js 4.0. It is pending removal and not recommended for new code. The try/catch/finally pattern is preferred for error handling.",
+    "suggestion": "Use async/await with try/catch, or the `async_hooks` module for fine-grained execution context tracking.",
+    "docsUrl": "https://nodejs.org/api/domain.html",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_CRYPTO_CREATE_CIPHER",
+    "pattern": "crypto.createCipher(",
+    "title": "crypto.createCipher() is deprecated",
+    "message": "crypto.createCipher() is deprecated since Node.js 10.0. It uses a non-standard key derivation function and is considered insecure.",
+    "suggestion": "Use `crypto.createCipheriv()` with an explicit initialization vector (IV) instead. The iv parameter provides stronger encryption guarantees.",
+    "docsUrl": "https://nodejs.org/api/crypto.html#cryptocreatecipheralgorithm-password-options",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_CRYPTO_CREATE_DECIPHER",
+    "pattern": "crypto.createDecipher(",
+    "title": "crypto.createDecipher() is deprecated",
+    "message": "crypto.createDecipher() is deprecated since Node.js 10.0 alongside createCipher. It uses a non-standard key derivation function.",
+    "suggestion": "Use `crypto.createDecipheriv()` with an explicit initialization vector (IV) instead.",
+    "docsUrl": "https://nodejs.org/api/crypto.html#cryptocreatedecipheralgorithm-password-options",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_PROCESS_BINDING",
+    "pattern": "process.binding(",
+    "title": "process.binding() is an internal API",
+    "message": "process.binding() is an internal Node.js API that is not subject to semantic versioning guarantees. It can break at any time.",
+    "suggestion": "Use the public Node.js API instead. If you need native bindings, use `node-gyp` or `node-addon-api`.",
+    "docsUrl": "https://nodejs.org/api/process.html#processbinding",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_SYS_REQUIRE",
+    "pattern": "require('sys')",
+    "title": "sys module is deprecated",
+    "message": "The sys module was removed in Node.js 0.3. Its exports were moved to the util module.",
+    "suggestion": "Use `require('util')` instead. The util module contains all the utilities previously in sys.",
+    "docsUrl": "https://nodejs.org/api/util.html",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_LINKLIST",
+    "pattern": "require('_linklist')",
+    "title": "_linklist is an internal module",
+    "message": "The _linklist module is an internal Node.js implementation detail. It is not part of the public API and can change or be removed at any time.",
+    "suggestion": "Use a standard linked-list implementation from npm, or implement your own using plain JavaScript arrays or objects.",
+    "docsUrl": "https://nodejs.org/api/errors.html#class-error",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_STREAM_INTERNAL",
+    "pattern": "require('_stream_",
+    "title": "Internal _stream_* modules are not public API",
+    "message": "Internal stream modules prefixed with _stream_ (e.g. _stream_readable, _stream_writable) are not part of Node.js's public API and can change without notice.",
+    "suggestion": "Use the public `stream` module and its exported classes: `stream.Readable`, `stream.Writable`, `stream.Transform`, etc.",
+    "docsUrl": "https://nodejs.org/api/stream.html",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_UTIL_EXTENDS",
+    "pattern": "util._extend(",
+    "title": "util._extend() is deprecated",
+    "message": "util._extend() is an internal API that was deprecated in Node.js 6.0. It is a copy of Object.assign and is not part of the public API.",
+    "suggestion": "Use `Object.assign()` or the object spread operator `{...obj1, ...obj2}` instead.",
+    "docsUrl": "https://nodejs.org/api/util.html#util_util_extend_target_source",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_UTIL_INHERITS",
+    "pattern": "util.inherits(",
+    "title": "util.inherits() is discouraged",
+    "message": "util.inherits() is discouraged for new code. It is a legacy API that does not support class-based inheritance patterns.",
+    "suggestion": "Use ES2015 `class` and `extends` keywords for prototypal inheritance instead.",
+    "docsUrl": "https://nodejs.org/api/util.html#utilinheritsconstructor-superconstructor",
+    "severity": "info"
+  },
+  {
+    "id": "DEPRECATED_UTIL_PRINT",
+    "pattern": "util.print(",
+    "title": "util.print() is deprecated",
+    "message": "util.print() was deprecated in Node.js 0.12 and is not available in newer versions.",
+    "suggestion": "Use `process.stdout.write()` or `console.log()` instead.",
+    "docsUrl": "https://nodejs.org/api/util.html#util_util_print_strings",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_UTIL_PUTS",
+    "pattern": "util.puts(",
+    "title": "util.puts() is deprecated",
+    "message": "util.puts() was deprecated in Node.js 0.12. It is a legacy utility for writing to stdout.",
+    "suggestion": "Use `console.log()` or `process.stdout.write()` instead.",
+    "docsUrl": "https://nodejs.org/api/util.html#util_util_puts_strings",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_HTTP_CREATE_SERVER_LEGACY",
+    "pattern": "http.createServer(function(",
+    "title": "Use async request handling with error boundaries",
+    "message": "While not strictly deprecated, using raw callback-based http.createServer() without proper error handling is error-prone. Modern Node.js patterns use frameworks with middleware or async error handling.",
+    "suggestion": "Consider using Express, Fastify, or the built-in async request listener pattern with proper try/catch wrapping.",
+    "docsUrl": "https://nodejs.org/api/http.html#httpcreateserveroptions-requestlistener",
+    "severity": "info"
+  },
+  {
+    "id": "DEPRECATED_FS_TRUNCATE_SYNC",
+    "pattern": "fs.truncateSync(",
+    "title": "fs.truncateSync() usage requires care",
+    "message": "fs.truncateSync() is valid but truncating files synchronously in Node.js event loop is discouraged in production code. The file descriptor variant fs.ftruncateSync is sometimes preferred.",
+    "suggestion": "Prefer the async `fs.truncate()` in production code to avoid blocking the event loop.",
+    "docsUrl": "https://nodejs.org/api/fs.html#fstruncatesyncpath-len",
+    "severity": "info"
+  },
+  {
+    "id": "DEPRECATED_VM_MODULE",
+    "pattern": "require('vm')",
+    "title": "vm module has security caveats",
+    "message": "The vm module is not deprecated, but `vm.runInThisContext()` and `vm.createContext()` do not provide security isolation — sandboxed code can escape the sandbox. AI-generated code often misuses it as a security boundary.",
+    "suggestion": "Do not use the vm module for security isolation. Use real process-level isolation (worker_threads, child_process) or a dedicated sandbox library.",
+    "docsUrl": "https://nodejs.org/api/vm.html#vm-execution-javascript",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_REQUIRE_RESOLVE",
+    "pattern": "require.resolve(",
+    "title": "require.resolve() usage in application code",
+    "message": "require.resolve() is primarily intended for tooling and bundler internals. Using it in application code can lead to brittle module resolution paths.",
+    "suggestion": "Use `import.meta.resolve` (ESM) or `createRequire(import.meta.url).resolve` for explicit path resolution.",
+    "docsUrl": "https://nodejs.org/api/modules.html#requireresolverequest-options",
+    "severity": "info"
+  },
+  {
+    "id": "DEPRECATED_CHILD_PROCESS_SYNC",
+    "pattern": "child_process.execSync(",
+    "title": "execSync() usage is discouraged",
+    "message": "child_process.execSync() blocks the Node.js event loop entirely, which can cause severe performance issues in production servers.",
+    "suggestion": "Use the async `child_process.exec()` with proper error handling, or use `child_process.spawn()` for streaming output.",
+    "docsUrl": "https://nodejs.org/api/child_process.html#child_processexecsynccommand-options",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_ASSOC_REQUIRE_EXTENSIONS",
+    "pattern": "require.extensions",
+    "title": "require.extensions is deprecated",
+    "message": "require.extensions is a legacy API that was used to modify how Node.js resolves file extensions. It is deprecated because it modifies global state and leads to brittle behavior.",
+    "suggestion": "Use ESM loader hooks or a custom transpiler pipeline if you need custom file extension handling.",
+    "docsUrl": "https://nodejs.org/api/modules.html#requireextensions",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_DGRAM_REF",
+    "pattern": "socket.ref()",
+    "title": "dgram socket.ref()/unref() misuse is common",
+    "message": "While not deprecated, dgram socket.ref() and socket.unref() usage in AI-generated code often indicates misunderstanding of the event loop lifetime. Overusing unref() can cause the process to exit prematurely.",
+    "suggestion": "Understand the event loop impact before using ref()/unref(). Only unref() sockets when you intentionally want the process to exit without waiting for the socket.",
+    "docsUrl": "https://nodejs.org/api/dgram.html#socketref",
+    "severity": "info"
+  }
+]

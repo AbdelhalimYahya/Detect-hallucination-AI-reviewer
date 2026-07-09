@@ -1,0 +1,155 @@
+[
+  {
+    "id": "DEPRECATED_COMPONENT_WILL_MOUNT",
+    "pattern": "componentWillMount(",
+    "title": "componentWillMount is deprecated",
+    "message": "componentWillMount was deprecated in React 16.3.0 and removed in React 18. It was commonly used for side effects that should not happen before the component is mounted.",
+    "suggestion": "Use `constructor()` for initialization logic or `componentDidMount()` for side effects like API calls.",
+    "docsUrl": "https://react.dev/reference/react/Component#componentwillmount",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_COMPONENT_WILL_RECEIVE_PROPS",
+    "pattern": "componentWillReceiveProps(",
+    "title": "componentWillReceiveProps is deprecated",
+    "message": "componentWillReceiveProps was deprecated in React 16.3.0 and removed in React 18. It was error-prone and often used incorrectly.",
+    "suggestion": "Use `getDerivedStateFromProps()` for deriving state from props, or use `componentDidUpdate()` for side effects on prop changes (with a comparison check).",
+    "docsUrl": "https://react.dev/reference/react/Component#componentwillreceiveprops",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_COMPONENT_WILL_UPDATE",
+    "pattern": "componentWillUpdate(",
+    "title": "componentWillUpdate is deprecated",
+    "message": "componentWillUpdate was deprecated in React 16.3.0 and removed in React 18. It ran before rendering and could not safely access the DOM or perform side effects.",
+    "suggestion": "Use `getSnapshotBeforeUpdate()` for reading DOM state before a render, and `componentDidUpdate()` for side effects after a render.",
+    "docsUrl": "https://react.dev/reference/react/Component#componentwillupdate",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_REACTDOM_RENDER",
+    "pattern": "ReactDOM.render(",
+    "title": "ReactDOM.render() is deprecated in React 18",
+    "message": "ReactDOM.render() was deprecated in React 18 in favor of the new concurrent renderer. It still works but logs a warning and will be removed in a future version.",
+    "suggestion": "Use `createRoot()` from react-dom/client instead: `createRoot(document.getElementById('root')).render(<App />)`.",
+    "docsUrl": "https://react.dev/reference/react-dom/client/createRoot",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_FIND_DOM_NODE",
+    "pattern": "findDOMNode(",
+    "title": "findDOMNode() is deprecated",
+    "message": "findDOMNode() was deprecated in React 16.6.0 and removed in React 18. It breaks component abstraction and cannot be used with function components.",
+    "suggestion": "Pass a ref directly to the DOM element you need to access. Use `React.createRef()` or the `useRef()` hook in function components.",
+    "docsUrl": "https://react.dev/reference/react-dom/findDOMNode",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_STRING_REFS",
+    "pattern": "ref=\"",
+    "title": "String refs are deprecated",
+    "message": "String refs (e.g., ref=\"myRef\") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.",
+    "suggestion": "Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.",
+    "docsUrl": "https://react.dev/reference/react/useRef",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_LEGACY_CONTEXT_CHILD_CONTEXT_TYPES",
+    "pattern": "childContextTypes",
+    "title": "Legacy Context API (childContextTypes) is deprecated",
+    "message": "The legacy Context API using childContextTypes, getChildContext(), and contextTypes was deprecated in React 16.3.0 and removed in React 18. It has performance issues and cannot be updated properly with shouldComponentUpdate.",
+    "suggestion": "Use the modern Context API with `React.createContext()`, `Context.Provider`, and `useContext()` hook or `Context.Consumer`.",
+    "docsUrl": "https://react.dev/reference/react/createContext",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_LEGACY_CONTEXT_GET_CHILD_CONTEXT",
+    "pattern": "getChildContext(",
+    "title": "Legacy Context API (getChildContext) is deprecated",
+    "message": "getChildContext() was deprecated in React 16.3.0 alongside childContextTypes. It is part of the legacy Context API that was removed in React 18.",
+    "suggestion": "Use `React.createContext()` with a Provider component to pass data down the component tree.",
+    "docsUrl": "https://react.dev/reference/react/createContext",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_LEGACY_CONTEXT_TYPES",
+    "pattern": "contextTypes",
+    "title": "Legacy Context API (contextTypes) is deprecated",
+    "message": "The contextTypes static property was deprecated alongside childContextTypes in React 16.3.0 and removed in React 18. It was used to consume legacy context.",
+    "suggestion": "Use `React.useContext()` hook, or `Context.Consumer` render prop with the modern Context API.",
+    "docsUrl": "https://react.dev/reference/react/createContext",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_REACT_CREATE_CLASS",
+    "pattern": "createReactClass(",
+    "title": "createReactClass() is deprecated",
+    "message": "createReactClass() was part of the deprecated react-create-class package. It was a legacy way to create React components before ES2015 classes were adopted.",
+    "suggestion": "Use ES2015 class components: `class MyComponent extends React.Component { render() { ... } }`, or use function components with hooks.",
+    "docsUrl": "https://react.dev/reference/react/Component",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_PROP_TYPES_FROM_REACT",
+    "pattern": "PropTypes.",
+    "title": "PropTypes from 'react' is deprecated",
+    "message": "Importing PropTypes from the 'react' package was deprecated in React 15.5. PropTypes were removed from the React core to reduce the bundle size.",
+    "suggestion": "Install the `prop-types` package separately and import PropTypes from 'prop-types'. Or use TypeScript for static type checking instead of runtime PropTypes.",
+    "docsUrl": "https://www.npmjs.com/package/prop-types",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_REACT_FACTORY",
+    "pattern": "React.createFactory(",
+    "title": "React.createFactory() is deprecated",
+    "message": "React.createFactory() was deprecated in React 16 and removed in React 18. It returned a factory function for creating React elements of a given type.",
+    "suggestion": "Use JSX directly: `<MyComponent />` or `React.createElement(MyComponent)`.",
+    "docsUrl": "https://react.dev/reference/react/createFactory",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_REACT_CREATE_CLASS_DEPRECATED",
+    "pattern": "React.createClass(",
+    "title": "React.createClass is deprecated",
+    "message": "React.createClass() was deprecated in React 15.5 and removed from the React core package. It was the original way to create components before ES2015 classes.",
+    "suggestion": "Use ES2015 class components with `extends React.Component` or function components with hooks.",
+    "docsUrl": "https://react.dev/reference/react/Component",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_COMPONENT_DID_MOUNT_SET_STATE_SYNC",
+    "pattern": "componentDidMount()",
+    "title": "componentDidMount setState should be used sparingly",
+    "message": "Calling setState synchronously in componentDidMount is not deprecated, but AI-generated code often uses it to fetch data when it should use a proper data-fetching strategy. Multiple setState calls in componentDidMount cause extra re-renders.",
+    "suggestion": "Use useEffect with async functions in function components, or batch setState calls in componentDidMount. Consider using React Query, SWR, or a similar data-fetching library.",
+    "docsUrl": "https://react.dev/reference/react/Component#componentdidmount",
+    "severity": "info"
+  },
+  {
+    "id": "DEPRECATED_UNSAFE_LIFECYCLE_WILL_MOUNT",
+    "pattern": "UNSAFE_componentWillMount(",
+    "title": "UNSAFE_componentWillMount should be migrated away",
+    "message": "The UNSAFE_ prefix lifecycle methods (UNSAFE_componentWillMount, UNSAFE_componentWillReceiveProps, UNSAFE_componentWillUpdate) are available as migration aids but are deprecated and will be removed in future React versions.",
+    "suggestion": "Migrate to the recommended alternatives: componentDidMount for side effects, getDerivedStateFromProps for state derivation, and getSnapshotBeforeUpdate for DOM reads.",
+    "docsUrl": "https://react.dev/reference/react/Component#unsafe_componentwillmount",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_UNSAFE_LIFECYCLE_WILL_RECEIVE_PROPS",
+    "pattern": "UNSAFE_componentWillReceiveProps(",
+    "title": "UNSAFE_componentWillReceiveProps should be migrated away",
+    "message": "UNSAFE_componentWillReceiveProps is a migration alias for the deprecated componentWillReceiveProps. It will be removed in a future React version.",
+    "suggestion": "Use getDerivedStateFromProps for state derivation from props, or componentDidUpdate with a comparison check for side effects.",
+    "docsUrl": "https://react.dev/reference/react/Component#unsafe_componentwillreceiveprops",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_UNSAFE_LIFECYCLE_WILL_UPDATE",
+    "pattern": "UNSAFE_componentWillUpdate(",
+    "title": "UNSAFE_componentWillUpdate should be migrated away",
+    "message": "UNSAFE_componentWillUpdate is a migration alias for the deprecated componentWillUpdate. It will be removed in a future React version.",
+    "suggestion": "Use getSnapshotBeforeUpdate for reading DOM state, and componentDidUpdate for side effects after rendering.",
+    "docsUrl": "https://react.dev/reference/react/Component#unsafe_componentwillupdate",
+    "severity": "warning"
+  }
+]

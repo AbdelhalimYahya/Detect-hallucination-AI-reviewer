@@ -1,0 +1,155 @@
+[
+  {
+    "id": "DEPRECATED_OPTPARSE",
+    "pattern": "import optparse",
+    "title": "optparse module is deprecated",
+    "message": "The optparse module was deprecated in Python 2.7 and removed in Python 3. It has been superseded by argparse, which provides a more powerful and flexible command-line argument parsing interface.",
+    "suggestion": "Use `import argparse` instead. The argparse module provides the same functionality with a more consistent API, automatic help generation, and better error messages.",
+    "docsUrl": "https://docs.python.org/3/library/argparse.html",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_COMMANDS_MODULE",
+    "pattern": "import commands",
+    "title": "commands module is deprecated",
+    "message": "The commands module was deprecated in Python 2.6 and removed in Python 3. It was used for running shell commands.",
+    "suggestion": "Use the `subprocess` module instead. `subprocess.check_output()` or `subprocess.run()` provide the same functionality with better security and more control.",
+    "docsUrl": "https://docs.python.org/3/library/subprocess.html",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_URLLIB2",
+    "pattern": "import urllib2",
+    "title": "urllib2 is a Python 2 module",
+    "message": "urllib2 was part of Python 2's standard library and was removed in Python 3. Its functionality was reorganized into urllib.request, urllib.error, and urllib.parse.",
+    "suggestion": "Use `urllib.request` from Python 3's standard library. For example: `urllib.request.urlopen(url)` instead of `urllib2.urlopen(url)`.",
+    "docsUrl": "https://docs.python.org/3/library/urllib.request.html",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_HTTPLIB",
+    "pattern": "import httplib",
+    "title": "httplib is a Python 2 module",
+    "message": "httplib was part of Python 2's standard library and was removed in Python 3. It was renamed to http.client in Python 3.",
+    "suggestion": "Use `http.client` from Python 3's standard library instead. For higher-level HTTP, use `requests` or `urllib.request`.",
+    "docsUrl": "https://docs.python.org/3/library/http.client.html",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_URLPARSE_PYTHON",
+    "pattern": "import urlparse",
+    "title": "urlparse is a Python 2 module",
+    "message": "urlparse was part of Python 2's standard library and was removed in Python 3. Its functionality was moved to urllib.parse.",
+    "suggestion": "Use `from urllib.parse import urlparse, urljoin, urlencode` in Python 3 instead.",
+    "docsUrl": "https://docs.python.org/3/library/urllib.parse.html",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_IMP_MODULE",
+    "pattern": "import imp",
+    "title": "imp module is deprecated",
+    "message": "The imp module was deprecated in Python 3.4 and removed in Python 3.12. It was the original import internals module.",
+    "suggestion": "Use `importlib` instead. The `importlib` module provides all the functionality of imp with a cleaner API, including `importlib.import_module()` and `importlib.util` for loader operations.",
+    "docsUrl": "https://docs.python.org/3/library/importlib.html",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_COLLECTIONS_CALLABLE",
+    "pattern": "collections.Callable",
+    "title": "collections.Callable is deprecated",
+    "message": "collections.Callable was deprecated in Python 3.3 and removed in Python 3.9. It was an abstract base class used for checking callable objects.",
+    "suggestion": "Use `collections.abc.Callable` instead: `from collections.abc import Callable`. Or use `callable()` built-in function for simple checks.",
+    "docsUrl": "https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_COLLECTIONS_ITERABLE",
+    "pattern": "collections.Iterable",
+    "title": "collections.Iterable is deprecated",
+    "message": "collections.Iterable was deprecated in Python 3.3 and removed in Python 3.9. Abstract base classes should now be imported from collections.abc.",
+    "suggestion": "Use `collections.abc.Iterable` instead: `from collections.abc import Iterable`.",
+    "docsUrl": "https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_ASYNCHAT",
+    "pattern": "import asynchat",
+    "title": "asynchat module is deprecated",
+    "message": "The asynchat module was deprecated in Python 3.6 and removed in Python 3.12. It was part of the legacy asyncore framework and is not compatible with asyncio.",
+    "suggestion": "Use the modern `asyncio` library for async I/O operations. For protocol handling, use `asyncio.Protocol` or `asyncio.StreamReader`/`StreamWriter`.",
+    "docsUrl": "https://docs.python.org/3/library/asyncio.html",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_ASYNCORE",
+    "pattern": "import asyncore",
+    "title": "asyncore module is deprecated",
+    "message": "The asyncore module was deprecated in Python 3.6 and removed in Python 3.12. It was a legacy async I/O framework that predates asyncio.",
+    "suggestion": "Use the `asyncio` module instead. It provides the same async socket handling with a modern, well-maintained implementation.",
+    "docsUrl": "https://docs.python.org/3/library/asyncio.html",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_CGI_MODULE",
+    "pattern": "import cgi",
+    "title": "cgi module is deprecated",
+    "message": "The cgi module was deprecated in Python 3.11 and removed in Python 3.13. It was used for CGI scripting but the CGI standard itself is considered legacy.",
+    "suggestion": "Use a modern web framework (Flask, FastAPI, Django) instead of CGI scripts. For multipart form parsing, use `cgi.FieldStorage` alternatives from the framework's request object.",
+    "docsUrl": "https://docs.python.org/3/library/cgi.html",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_CGITB_MODULE",
+    "pattern": "import cgitb",
+    "title": "cgitb module is deprecated",
+    "message": "The cgitb module was deprecated in Python 3.11 and removed in Python 3.13 alongside the cgi module.",
+    "suggestion": "Use proper logging and debugging tools instead of CGI traceback utilities. Use the `logging` module with stack trace capture, or a proper debugger.",
+    "docsUrl": "https://docs.python.org/3/library/cgitb.html",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_PIPES_MODULE",
+    "pattern": "import pipes",
+    "title": "pipes module is deprecated",
+    "message": "The pipes module was deprecated in Python 3.11 and removed in Python 3.13. It was used for creating shell pipeline templates.",
+    "suggestion": "Use `subprocess` module with pipes directly. `subprocess.run('cmd1 | cmd2', shell=True)` or use `subprocess.PIPE` for programmatic piping.",
+    "docsUrl": "https://docs.python.org/3/library/pipes.html",
+    "severity": "warning"
+  },
+  {
+    "id": "DEPRECATED_DISTUTILS",
+    "pattern": "import distutils",
+    "title": "distutils module is deprecated",
+    "message": "The distutils module was deprecated in Python 3.10 and removed in Python 3.12. It was the original packaging and distribution tool.",
+    "suggestion": "Use `setuptools` instead, or use the modern `build` and `twine` tools for package publishing. For configuration, use `pyproject.toml` with `setuptools` or `flit`.",
+    "docsUrl": "https://setuptools.pypa.io/en/latest/setuptools.html",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_DISTUTILS_VERSION",
+    "pattern": "distutils.version",
+    "title": "distutils.version is deprecated",
+    "message": "distutils.version.LooseVersion and StrictVersion were deprecated alongside distutils in Python 3.10 and removed in Python 3.12.",
+    "suggestion": "Use `packaging.version.Version` and `packaging.version.parse()` from the `packaging` library (available as `pip install packaging`).",
+    "docsUrl": "https://packaging.pypa.io/en/latest/version.html",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_COLLECTIONS_MAPPING",
+    "pattern": "collections.MutableMapping",
+    "title": "collections.MutableMapping is deprecated",
+    "message": "collections.MutableMapping was deprecated in Python 3.3 and removed in Python 3.9. Abstract base classes should be imported from collections.abc.",
+    "suggestion": "Use `collections.abc.MutableMapping` instead: `from collections.abc import MutableMapping`.",
+    "docsUrl": "https://docs.python.org/3/library/collections.abc.html#collections.abc.MutableMapping",
+    "severity": "error"
+  },
+  {
+    "id": "DEPRECATED_FROM_PYSTRING",
+    "pattern": "from string import ",
+    "title": "string module constants are deprecated as module attributes",
+    "message": "String constants like string.letters, string.lowercase, string.uppercase were deprecated in Python 3.0. They moved to the `string` module constants but many remain as compatibility aliases.",
+    "suggestion": "Use explicit string constants like `string.ascii_letters`, `string.ascii_lowercase`, `string.ascii_uppercase`, `string.digits`, and `string.hexdigits`.",
+    "docsUrl": "https://docs.python.org/3/library/string.html",
+    "severity": "warning"
+  }
+]
