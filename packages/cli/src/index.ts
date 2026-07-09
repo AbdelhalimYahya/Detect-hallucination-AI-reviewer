@@ -1,1 +1,1 @@
-export const name = '@ai-review/cli';
+export { printTerminalReport } from './report/terminalReport';

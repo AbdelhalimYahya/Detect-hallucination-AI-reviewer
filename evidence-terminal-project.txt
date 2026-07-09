@@ -1,0 +1,938 @@
+﻿=== AI Reviewer full project scan ===
+
+ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤
+ ai-review ظ¤ AI Code Review
+ Target: .  |  Files: 305  |  2026-07-09 08:56
+ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤
+
+[90mظ¤îظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤شظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤شظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤شظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m
+[90mظ¤é [39m Category             [90m ظ¤é [39m   Errors [90m ظ¤é [39m   Warnings [90m ظ¤é [39m     Info [90m ظ¤é[39m
+[90mظ¤£ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ج[39m
+[90mظ¤é [39m Deprecated APIs      [90m ظ¤é [39m      157 [90m ظ¤é [39m          6 [90m ظ¤é [39m        0 [90m ظ¤é[39m
+[90mظ¤£ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ج[39m
+[90mظ¤é [39m Hallucinated Pkgs    [90m ظ¤é [39m       10 [90m ظ¤é [39m          0 [90m ظ¤é [39m        0 [90m ظ¤é[39m
+[90mظ¤£ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ج[39m
+[90mظ¤é [39m Security             [90m ظ¤é [39m       42 [90m ظ¤é [39m         12 [90m ظ¤é [39m        0 [90m ظ¤é[39m
+[90mظ¤£ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ج[39m
+[90mظ¤é [39m Complexity           [90m ظ¤é [39m        0 [90m ظ¤é [39m          0 [90m ظ¤é [39m        0 [90m ظ¤é[39m
+[90mظ¤£ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ج[39m
+[90mظ¤é [39m Convention           [90m ظ¤é [39m        0 [90m ظ¤é [39m          0 [90m ظ¤é [39m        0 [90m ظ¤é[39m
+[90mظ¤£ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤╝ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ج[39m
+[90mظ¤é [39m Total                [90m ظ¤é [39m      209 [90m ظ¤é [39m         18 [90m ظ¤é [39m        0 [90m ظ¤é[39m
+[90mظ¤¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤┤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤┤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤[39m[90mظ¤┤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ء[39m
+
+
+Error (209)
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/active/ActiveAlertsClient.tsx:278:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/active/ActiveAlertsClient.tsx:302:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/active/ActiveAlertsClient.tsx:411:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/create/page.tsx:129:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/alerts/create/page.tsx:56:81
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/page.tsx:290:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/page.tsx:298:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/page.tsx:313:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/page.tsx:321:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/page.tsx:329:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/page.tsx:337:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/page.tsx:352:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/page.tsx:465:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/page.tsx:471:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/tracking-health/page.tsx:335:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/tracking-health/page.tsx:343:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/tracking-health/page.tsx:358:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/tracking-health/page.tsx:366:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/tracking-health/page.tsx:374:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/tracking-health/page.tsx:382:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/alerts/tracking-health/page.tsx:505:28
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/analyze/channels/page.tsx:114:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/analyze/channels/page.tsx:126:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/clients/page.tsx:243:34
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/clients/page.tsx:257:36
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/coming-soon/[feature]/page.tsx:112:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/coming-soon/[feature]/page.tsx:119:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/coming-soon/[feature]/page.tsx:129:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/components/AICopilotFab.tsx:160:28
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/AIChatDemo.tsx:192:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/components/home/AIChatDemo.tsx:15:132
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/AnimatedChatInput.tsx:79:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/AnimatedChatInput.tsx:91:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/AnimatedChatInput.tsx:97:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/FinalCTA.tsx:18:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/FinalCTA.tsx:24:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/FiveLayers.tsx:68:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/FiveLayers.tsx:74:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/Footer.tsx:13:55
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/Footer.tsx:16:55
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/Footer.tsx:19:58
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/HowItWorks.tsx:17:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/Navbar.tsx:8:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/Navbar.tsx:16:15
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/Navbar.tsx:19:15
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/Navbar.tsx:22:15
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/Navbar.tsx:25:15
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/Navbar.tsx:32:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/Navbar.tsx:38:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/Pricing.tsx:34:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/Pricing.tsx:55:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/home/Pricing.tsx:74:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:363:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:368:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:371:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:376:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:379:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:382:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:385:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:390:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:395:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:398:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:401:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:404:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:409:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:412:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/components/shell/AppShell.tsx:431:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/copilot/CopilotClient.tsx:376:65
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/copilot/history/page.tsx:239:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/copilot/history/page.tsx:309:22
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/copilot/playbooks/page.tsx:94:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/creative/CreativeScreen.tsx:940:48
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/creative/analysis/page.tsx:100:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/dashboards/creative/fatigue/page.tsx:236:39
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/creative/performance/page.tsx:177:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/growth/funnel/page.tsx:276:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/growth/kpi-tracking/page.tsx:107:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/performance/awareness/page.tsx:207:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/performance/awareness/page.tsx:321:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/performance/channels/page.tsx:366:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/performance/daily/page.tsx:308:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/performance/executive/page.tsx:317:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/performance/page.tsx:33:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/performance/page.tsx:64:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/performance/page.tsx:84:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/performance/page.tsx:104:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/performance/page.tsx:119:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/performance/page.tsx:142:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/performance/products/page.tsx:386:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/dashboards/performance/traffic/page.tsx:99:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/google-ads-data/page.tsx:483:29
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/google-analytics-data/page.tsx:706:61
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/layout.tsx:39:33
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/layout.tsx:40:33
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/layout.tsx:41:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/login/page.tsx:227:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/login/page.tsx:235:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/login/page.tsx:239:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/marketing/page.tsx:59:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/marketing/page.tsx:138:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/meta-ads-data/page.tsx:459:56
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page-phase2-backup.tsx:197:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page-phase2-backup.tsx:209:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page-phase2-backup.tsx:243:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page-phase2-backup.tsx:253:28
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page-phase2-backup.tsx:276:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page-phase2-backup.tsx:314:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page-phase2-backup.tsx:347:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page.old.tsx:294:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page.old.tsx:374:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page.old.tsx:458:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page.old.tsx:510:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page.old.tsx:548:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page.old.tsx:556:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page.old.tsx:564:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page.tsx:652:15
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/overview/page.tsx:662:13
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/overview/page.tsx:560:64
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/comparisons/page.tsx:401:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/comparisons/page.tsx:527:24
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/creatives/page.tsx:488:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/performance/creatives/page.tsx:145:13
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/performance/creatives/page.tsx:826:64
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/dashboards/page.tsx:731:26
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/dashboards/page.tsx:770:26
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/dashboards/page.tsx:814:26
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/dashboards/page.tsx:860:26
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/dashboards/page.tsx:866:26
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/dashboards/page.tsx:879:26
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/dashboards/page.tsx:889:26
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/dashboards/page.tsx:899:26
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/performance/dashboards/page.tsx:430:63
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/funnels/page.tsx:465:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/funnels/page.tsx:552:24
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/funnels/page.tsx:558:24
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/platforms/page.tsx:243:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/platforms/page.tsx:249:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/performance/platforms/page.tsx:351:22
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/reports/page.tsx:430:48
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/settings/integrations/api-key-setup/page.tsx:85:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/settings/integrations/api-key-setup/page.tsx:172:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/settings/integrations/page.tsx:1475:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/settings/integrations/page.tsx:307:33
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/signup/page.tsx:271:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/signup/page.tsx:279:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/signup/page.tsx:283:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/soon/[feature]/page.tsx:105:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/soon/[feature]/page.tsx:108:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/soon/[feature]/page.tsx:131:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/soon/[feature]/page.tsx:162:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/soon/[feature]/page.tsx:165:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/soon/[feature]/page.tsx:204:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/soon/[feature]/page.tsx:207:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/soon/[feature]/page.tsx:216:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/soon/[feature]/page.tsx:44:37
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/soon/[feature]/page.tsx:47:72
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/stores/create/page.tsx:430:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/stores/page-old-backup.tsx:94:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/stores/page-old-backup.tsx:116:16
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/stores/page.tsx:266:36
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/stores/[id]/page.tsx:76:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/stores/[id]/page.tsx:148:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/stores/[id]/page.tsx:294:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/stores/[id]/page.tsx:362:20
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/app/tiktok-ads-data/page.tsx:344:71
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/tiktok-ads-data/page.tsx:61:31
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/traffic/TrafficScreen.tsx:182:50
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/app/traffic/TrafficScreen.tsx:783:61
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/components/dashboard/connect-prompt.tsx:74:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/components/dashboard/connect-prompt.tsx:123:12
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/components/dashboard/connect-prompt.tsx:143:10
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/components/dashboard/dashboard-header.tsx:267:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/components/ui/command-palette.tsx:134:12
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/components/ui/command-palette.tsx:139:12
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/lib/overview/insights.ts:286:24
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/lib/overview/insights.ts:306:15
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/lib/sync/meta-sync.ts:87:14
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/old files/copilotClient.tsx:367:21
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/old files/copilotClient.tsx:371:21
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/old files/copilotClient.tsx:401:20
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/old files/copilotClient.tsx:405:20
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/old files/copilotClient.tsx:428:12
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/old files/copilotClient.tsx:433:12
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/old files/copilotClient.tsx:760:65
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/old files/copilotHistory.tsx:158:14
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/old files/copilotHistory.tsx:243:18
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/old files/overview.tsx:588:24
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [DEPRECATED_STRING_REFS] deprecated-api ┬╖ error
+    MTmicro/old files/overview.tsx:700:22
+    String refs (e.g., ref="myRef") were deprecated in React 16 and removed in React 18. They have several issues including performance and composition problems.
+    ظْ Use `React.createRef()` in class components or `useRef()` in function components: `ref={this.myRef}` or `ref={myRef}`.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    MTmicro/variant/chunk_413bb5f6.jsx:446:48
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [HALLUCINATED_PACKAGE] hallucinated-package ┬╖ error
+    MTmicro/variant/python exc/extract_all_js.py:1:1
+    The package 'json' does not exist on the PyPI registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.
+    ظْ Verify the package name at https://pypi.org/json. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.
+  ظ£ù [HALLUCINATED_PACKAGE] hallucinated-package ┬╖ error
+    MTmicro/variant/python exc/extract_chunks.py:1:1
+    The package 'json' does not exist on the PyPI registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.
+    ظْ Verify the package name at https://pypi.org/json. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.
+  ظ£ù [HALLUCINATED_PACKAGE] hallucinated-package ┬╖ error
+    MTmicro/variant/python exc/extract_css.py:1:1
+    The package 'json' does not exist on the PyPI registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.
+    ظْ Verify the package name at https://pypi.org/json. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.
+  ظ£ù [HALLUCINATED_PACKAGE] hallucinated-package ┬╖ error
+    MTmicro/variant/python exc/extract_css2.py:1:1
+    The package 're' does not exist on the PyPI registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.
+    ظْ Verify the package name at https://pypi.org/re. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.
+  ظ£ù [HALLUCINATED_PACKAGE] hallucinated-package ┬╖ error
+    MTmicro/variant/python exc/extract_full.py:1:1
+    The package 'json' does not exist on the PyPI registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.
+    ظْ Verify the package name at https://pypi.org/json. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.
+  ظ£ù [HALLUCINATED_PACKAGE] hallucinated-package ┬╖ error
+    MTmicro/variant/python exc/find_sections.py:1:1
+    The package 're' does not exist on the PyPI registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.
+    ظْ Verify the package name at https://pypi.org/re. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.
+  ظ£ù [HALLUCINATED_PACKAGE] hallucinated-package ┬╖ error
+    packages/cli/src/report/terminalReport.ts:3:1
+    The package '@ai-review/core' does not exist on the npm registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.
+    ظْ Verify the package name at https://npmjs.com/%40ai-review%2Fcore. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.
+  ظ£ù [SEC_EVAL] security ┬╖ error
+    packages/core/src/rules/securityPatterns.ts:26:26
+    eval() with a variable argument is dangerous ظ¤ it executes arbitrary code in the current context.
+    ظْ Never use eval(). Parse JSON with JSON.parse(), execute operations with explicit function calls.
+  ظ£ù [SEC_EVAL] security ┬╖ error
+    packages/core/src/rules/securityPatterns.ts:27:21
+    eval() with a variable argument is dangerous ظ¤ it executes arbitrary code in the current context.
+    ظْ Never use eval(). Parse JSON with JSON.parse(), execute operations with explicit function calls.
+  ظ£ù [SEC_EVAL] security ┬╖ error
+    packages/core/src/rules/securityPatterns.ts:28:34
+    eval() with a variable argument is dangerous ظ¤ it executes arbitrary code in the current context.
+    ظْ Never use eval(). Parse JSON with JSON.parse(), execute operations with explicit function calls.
+  ظ£ù [DEPRECATED_COMPONENT_WILL_MOUNT] deprecated-api ┬╖ error
+    packages/core/src/rules/__tests__/deprecatedApis.test.ts:37:69
+    componentWillMount was deprecated in React 16.3.0 and removed in React 18. It was commonly used for side effects that should not happen before the component is mounted.
+    ظْ Use `constructor()` for initialization logic or `componentDidMount()` for side effects like API calls.
+  ظ£ù [HALLUCINATED_PACKAGE] hallucinated-package ┬╖ error
+    packages/core/src/rules/__tests__/hallucinatedPackages.test.ts:19:22
+    The package 'totally-fake-ai-invented-package-xyz' does not exist on the npm registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.
+    ظْ Verify the package name at https://npmjs.com/totally-fake-ai-invented-package-xyz. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.
+  ظ£ù [HALLUCINATED_PACKAGE] hallucinated-package ┬╖ error
+    packages/core/src/rules/__tests__/hallucinatedPackages.test.ts:61:22
+    The package '@scope/some-package' does not exist on the npm registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.
+    ظْ Verify the package name at https://npmjs.com/%40scope%2Fsome-package. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.
+  ظ£ù [HALLUCINATED_PACKAGE] hallucinated-package ┬╖ error
+    packages/core/src/rules/__tests__/hallucinatedPackages.test.ts:69:22
+    The package 'fake-require-pkg' does not exist on the npm registry. This is a common AI hallucination pattern where an LLM invents a package name that sounds plausible but doesn't exist.
+    ظْ Verify the package name at https://npmjs.com/fake-require-pkg. If you need similar functionality, search for real packages with comparable names. If this is an internal package, ensure it is published to your private registry.
+  ظ£ù [SEC_EVAL] security ┬╖ error
+    packages/core/src/rules/__tests__/securityPatterns.test.ts:16:24
+    eval() with a variable argument is dangerous ظ¤ it executes arbitrary code in the current context.
+    ظْ Never use eval(). Parse JSON with JSON.parse(), execute operations with explicit function calls.
+  ظ£ù [SEC_EVAL] security ┬╖ error
+    packages/core/src/rules/__tests__/securityPatterns.test.ts:17:17
+    eval() with a variable argument is dangerous ظ¤ it executes arbitrary code in the current context.
+    ظْ Never use eval(). Parse JSON with JSON.parse(), execute operations with explicit function calls.
+  ظ£ù [SEC_EVAL] security ┬╖ error
+    packages/core/src/rules/__tests__/securityPatterns.test.ts:18:46
+    eval() with a variable argument is dangerous ظ¤ it executes arbitrary code in the current context.
+    ظْ Never use eval(). Parse JSON with JSON.parse(), execute operations with explicit function calls.
+  ظ£ù [SEC_EVAL] security ┬╖ error
+    packages/core/src/rules/__tests__/securityPatterns.test.ts:22:15
+    eval() with a variable argument is dangerous ظ¤ it executes arbitrary code in the current context.
+    ظْ Never use eval(). Parse JSON with JSON.parse(), execute operations with explicit function calls.
+  ظ£ù [SEC_SQL_CONCAT] security ┬╖ error
+    packages/core/src/rules/__tests__/securityPatterns.test.ts:42:41
+    SQL query built by concatenating strings or using template literals with variables is vulnerable to SQL injection.
+    ظْ Use parameterized queries or a query builder. Never interpolate user input into SQL strings.
+  ظ£ù [SEC_HARDCODED_SECRET] security ┬╖ error
+    packages/core/src/rules/__tests__/securityPatterns.test.ts:54:37
+    A credential-sounding value was found hardcoded in the source. Value: "sk-a...f456".
+    ظْ Store secrets in environment variables, a secrets manager (e.g. Azure Key Vault, AWS Secrets Manager), or a .env file loaded at runtime.
+
+Warning (18)
+  ظ£ù [SEC_PROTOTYPE_POLLUTION] security ┬╖ warn 
+    MTmicro/temp_extract22.js:19:38
+    Object.assign or merge patterns with user input can lead to prototype pollution if the source object contains __proto__ keys.
+    ظْ Use Object.assign({}, source) with an empty target, or use Object.create(null) for safe object creation. Filter out __proto__ keys.
+  ظ£ù [SEC_PROTOTYPE_POLLUTION] security ┬╖ warn 
+    MTmicro/variant/chunk_0a32234b.jsx:417:1
+    Object.assign or merge patterns with user input can lead to prototype pollution if the source object contains __proto__ keys.
+    ظْ Use Object.assign({}, source) with an empty target, or use Object.create(null) for safe object creation. Filter out __proto__ keys.
+  ظ£ù [SEC_PROTOTYPE_POLLUTION] security ┬╖ warn 
+    MTmicro/variant/chunk_33a7eb7f.jsx:150:1
+    Object.assign or merge patterns with user input can lead to prototype pollution if the source object contains __proto__ keys.
+    ظْ Use Object.assign({}, source) with an empty target, or use Object.create(null) for safe object creation. Filter out __proto__ keys.
+  ظ£ù [SEC_PROTOTYPE_POLLUTION] security ┬╖ warn 
+    MTmicro/variant/chunk_3a0997c4.jsx:302:1
+    Object.assign or merge patterns with user input can lead to prototype pollution if the source object contains __proto__ keys.
+    ظْ Use Object.assign({}, source) with an empty target, or use Object.create(null) for safe object creation. Filter out __proto__ keys.
+  ظ£ù [SEC_PROTOTYPE_POLLUTION] security ┬╖ warn 
+    MTmicro/variant/chunk_413bb5f6.jsx:583:1
+    Object.assign or merge patterns with user input can lead to prototype pollution if the source object contains __proto__ keys.
+    ظْ Use Object.assign({}, source) with an empty target, or use Object.create(null) for safe object creation. Filter out __proto__ keys.
+  ظ£ù [SEC_PROTOTYPE_POLLUTION] security ┬╖ warn 
+    MTmicro/variant/chunk_4516966b.jsx:114:1
+    Object.assign or merge patterns with user input can lead to prototype pollution if the source object contains __proto__ keys.
+    ظْ Use Object.assign({}, source) with an empty target, or use Object.create(null) for safe object creation. Filter out __proto__ keys.
+  ظ£ù [SEC_PROTOTYPE_POLLUTION] security ┬╖ warn 
+    MTmicro/variant/chunk_831ba8c4.jsx:621:1
+    Object.assign or merge patterns with user input can lead to prototype pollution if the source object contains __proto__ keys.
+    ظْ Use Object.assign({}, source) with an empty target, or use Object.create(null) for safe object creation. Filter out __proto__ keys.
+  ظ£ù [SEC_PROTOTYPE_POLLUTION] security ┬╖ warn 
+    MTmicro/variant/chunk_a00f5b1d.jsx:189:1
+    Object.assign or merge patterns with user input can lead to prototype pollution if the source object contains __proto__ keys.
+    ظْ Use Object.assign({}, source) with an empty target, or use Object.create(null) for safe object creation. Filter out __proto__ keys.
+  ظ£ù [SEC_PROTOTYPE_POLLUTION] security ┬╖ warn 
+    MTmicro/variant/chunk_c0b3d5c9.jsx:442:1
+    Object.assign or merge patterns with user input can lead to prototype pollution if the source object contains __proto__ keys.
+    ظْ Use Object.assign({}, source) with an empty target, or use Object.create(null) for safe object creation. Filter out __proto__ keys.
+  ظ£ù [DEPRECATED_URL_PARSE] deprecated-api ┬╖ warn 
+    packages/core/src/rules/__tests__/deprecatedApis.test.ts:7:13
+    url.parse() was deprecated in Node.js 11.0. It has known security issues with certain inputs.
+    ظْ Use `new URL(urlString)` instead. The URL class is globally available in Node.js 10+ and all browsers.
+  ظ£ù [DEPRECATED_URL_PARSE] deprecated-api ┬╖ warn 
+    packages/core/src/rules/__tests__/deprecatedApis.test.ts:8:46
+    url.parse() was deprecated in Node.js 11.0. It has known security issues with certain inputs.
+    ظْ Use `new URL(urlString)` instead. The URL class is globally available in Node.js 10+ and all browsers.
+  ظ£ù [DEPRECATED_URL_PARSE] deprecated-api ┬╖ warn 
+    packages/core/src/rules/__tests__/deprecatedApis.test.ts:75:22
+    url.parse() was deprecated in Node.js 11.0. It has known security issues with certain inputs.
+    ظْ Use `new URL(urlString)` instead. The URL class is globally available in Node.js 10+ and all browsers.
+  ظ£ù [DEPRECATED_URL_PARSE] deprecated-api ┬╖ warn 
+    packages/core/src/rules/__tests__/deprecatedApis.test.ts:82:22
+    url.parse() was deprecated in Node.js 11.0. It has known security issues with certain inputs.
+    ظْ Use `new URL(urlString)` instead. The URL class is globally available in Node.js 10+ and all browsers.
+  ظ£ù [DEPRECATED_URL_PARSE] deprecated-api ┬╖ warn 
+    packages/core/src/rules/__tests__/deprecatedApis.test.ts:82:39
+    url.parse() was deprecated in Node.js 11.0. It has known security issues with certain inputs.
+    ظْ Use `new URL(urlString)` instead. The URL class is globally available in Node.js 10+ and all browsers.
+  ظ£ù [DEPRECATED_URL_PARSE] deprecated-api ┬╖ warn 
+    packages/core/src/rules/__tests__/deprecatedApis.test.ts:82:56
+    url.parse() was deprecated in Node.js 11.0. It has known security issues with certain inputs.
+    ظْ Use `new URL(urlString)` instead. The URL class is globally available in Node.js 10+ and all browsers.
+  ظ£ù [SEC_INNER_HTML] security ┬╖ warn 
+    packages/core/src/rules/__tests__/securityPatterns.test.ts:30:38
+    Setting innerHTML from a variable can lead to XSS if the value contains user-controlled data.
+    ظْ Use textContent for plain text, or sanitize with DOMPurify before using innerHTML.
+  ظ£ù [SEC_WEAK_CRYPTO] security ┬╖ warn 
+    packages/core/src/rules/__tests__/securityPatterns.test.ts:66:44
+    MD5 and SHA-1 are cryptographically broken and should not be used for security purposes.
+    ظْ Use SHA-256 or stronger for security purposes. MD5/SHA1 are broken for cryptographic use.
+  ظ£ù [SEC_PROTOTYPE_POLLUTION] security ┬╖ warn 
+    packages/core/src/rules/__tests__/securityPatterns.test.ts:78:31
+    Object.assign or merge patterns with user input can lead to prototype pollution if the source object contains __proto__ keys.
+    ظْ Use Object.assign({}, source) with an empty target, or use Object.create(null) for safe object creation. Filter out __proto__ keys.
+
+Cost this run: ~$0.0000
+ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤ظ¤
