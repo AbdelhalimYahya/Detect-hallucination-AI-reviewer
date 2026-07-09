@@ -1,7 +1,8 @@
 node_modules
+**/node_modules
 src/**
 *.test.ts
 fixtures
-databases
-.vscode
 tsconfig.json
+build.mjs
+.staging

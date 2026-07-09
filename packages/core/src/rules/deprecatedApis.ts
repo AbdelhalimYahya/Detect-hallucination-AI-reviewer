@@ -14,6 +14,8 @@ interface DatabaseEntry {
 
 function getDbPath(): string {
   if (typeof __dirname !== 'undefined') {
+    const colocated = path.resolve(__dirname, '..', 'databases');
+    if (fs.existsSync(colocated)) return colocated;
     return path.resolve(__dirname, '..', '..', '..', '..', 'databases');
   }
   return path.resolve(process.cwd(), 'databases');

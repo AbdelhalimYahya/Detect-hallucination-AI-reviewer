@@ -5,6 +5,11 @@
   "private": true,
   "publisher": "your-publisher-id",
   "description": "AI-powered code review for AI-generated code. Catches deprecated APIs, hallucinated packages, security issues, and unnecessary complexity.",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-handle/ai-review"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -26,17 +31,16 @@
   ],
   "main": "./dist/extension.js",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc -w"
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch",
+    "stage": "node build.mjs --stage",
+    "package": "node build.mjs --package"
   },
-  "dependencies": {
-    "@ai-review/core": "^0.1.0",
-    "vscode-languageclient": "^9.0.0",
-    "vscode-languageserver": "^9.0.0",
-    "vscode-languageserver-textdocument": "^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/vscode": "^1.85.0"
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.28.1"
   },
   "contributes": {
     "commands": [

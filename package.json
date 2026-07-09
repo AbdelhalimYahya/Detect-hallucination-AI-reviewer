@@ -11,8 +11,10 @@
   },
   "devDependencies": {
     "@types/node": "^26.1.1",
+    "esbuild": "^0.28.1",
     "typescript": "^5.4.0",
-    "vitest": "^1.6.0"
+    "vitest": "^1.6.0",
+    "vsce": "^2.15.0"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.110.0"
