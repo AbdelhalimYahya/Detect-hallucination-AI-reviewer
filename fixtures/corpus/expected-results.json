@@ -1,0 +1,42 @@
+{
+  "clean-typescript": {
+    "total": 0,
+    "static": { "total": 0, "ruleIds": [] },
+    "ai": { "total": 0, "ruleIds": [] }
+  },
+  "deprecated-node": {
+    "total": 3,
+    "static": { "total": 3, "ruleIds": ["DEPRECATED_URL_PARSE", "DEPRECATED_NEW_BUFFER", "DEPRECATED_QUERYSTRING"] },
+    "ai": { "total": 0, "ruleIds": [] }
+  },
+  "security-issues": {
+    "total": 3,
+    "static": { "total": 3, "ruleIds": ["SEC_EVAL", "SEC_INNER_HTML", "SEC_HARDCODED_SECRET"] },
+    "ai": { "total": 0, "ruleIds": [] }
+  },
+  "hallucinated-packages": {
+    "total": 1,
+    "static": { "total": 1, "ruleIds": ["HALLUCINATED_PACKAGE"] },
+    "ai": { "total": 0, "ruleIds": [] }
+  },
+  "complex-code": {
+    "total": 1,
+    "static": { "total": 0, "ruleIds": [] },
+    "ai": { "total": 1, "ruleIds": ["AI_COMPLEXITY"] }
+  },
+  "convention-violations": {
+    "total": 3,
+    "static": { "total": 0, "ruleIds": [] },
+    "ai": { "total": 3, "ruleIds": ["AI_CONVENTION"] }
+  },
+  "python-issues": {
+    "total": 3,
+    "static": { "total": 3, "ruleIds": ["DEPRECATED_OPTPARSE", "SEC_PICKLE", "SEC_SHELL_INJECT"] },
+    "ai": { "total": 0, "ruleIds": [] }
+  },
+  "mixed-clean-and-dirty": {
+    "total": 3,
+    "static": { "total": 3, "ruleIds": ["DEPRECATED_URL_PARSE", "SEC_EVAL", "SEC_HARDCODED_SECRET"] },
+    "ai": { "total": 0, "ruleIds": [] }
+  }
+}

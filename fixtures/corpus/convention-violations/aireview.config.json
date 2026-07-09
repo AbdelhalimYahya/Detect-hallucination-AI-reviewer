@@ -1,0 +1,7 @@
+{
+  "conventions": [
+    "Always use async/await instead of .then() chains",
+    "Never use var, always use const or let",
+    "Functions must have explicit return type annotations"
+  ]
+}
