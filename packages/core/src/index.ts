@@ -8,3 +8,5 @@ export type {
   ReviewConfig,
   Rule,
 } from './types';
+
+export { loadConfig, generateDefaultConfig } from './config';

@@ -10,6 +10,7 @@
     "dev": "tsc -b -w"
   },
   "devDependencies": {
+    "@types/node": "^26.1.1",
     "typescript": "^5.4.0",
     "vitest": "^1.6.0"
   }
