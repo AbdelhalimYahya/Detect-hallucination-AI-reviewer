@@ -15,11 +15,40 @@ import {
   createDeprecatedApiRule,
   createSecurityRule,
   checkHallucinatedPackages,
+  reviewFileWithAI,
+  ResultCache,
 } from '@ai-review/core';
-import type { Language, Finding } from '@ai-review/core';
+import type { Language, Finding, ReviewConfig } from '@ai-review/core';
 
 const connection = createConnection(ProposedFeatures.all);
 const documents = new TextDocuments(TextDocument);
+
+const cache = new ResultCache();
+let cachedApiKey: string | undefined;
+let cachedModel: string | undefined;
+
+async function getApiKey(): Promise<string | undefined> {
+  if (cachedApiKey !== undefined) return cachedApiKey;
+  try {
+    const config = await connection.workspace.getConfiguration('ai-review');
+    cachedApiKey = config?.anthropicApiKey || process.env.ANTHROPIC_API_KEY || undefined;
+  } catch {
+    cachedApiKey = process.env.ANTHROPIC_API_KEY || undefined;
+  }
+  return cachedApiKey;
+}
+
+async function getModel(): Promise<string> {
+  if (cachedModel === undefined) {
+    try {
+      const config = await connection.workspace.getConfiguration('ai-review');
+      cachedModel = config?.model || 'claude-haiku-4-5';
+    } catch {
+      cachedModel = 'claude-haiku-4-5';
+    }
+  }
+  return cachedModel!;
+}
 
 function detectLanguage(uri: string): Language {
   const ext = uri.split('.').pop()?.toLowerCase();
@@ -62,6 +91,11 @@ connection.onInitialize((): InitializeResult => {
   };
 });
 
+connection.onDidChangeConfiguration(() => {
+  cachedApiKey = undefined;
+  cachedModel = undefined;
+});
+
 async function runStaticAnalysis(doc: TextDocument): Promise<Diagnostic[]> {
   const language = detectLanguage(doc.uri);
   if (language === 'unknown') return [];
@@ -93,27 +127,86 @@ async function runHallucinatedCheck(doc: TextDocument): Promise<Diagnostic[]> {
   }
 }
 
-async function sendDiagnostics(doc: TextDocument): Promise<void> {
-  const staticDiags = await runStaticAnalysis(doc);
-  const uri = doc.uri;
-  connection.sendDiagnostics({ uri, diagnostics: staticDiags });
-}
-
-async function sendDiagnosticsWithHallucinated(doc: TextDocument): Promise<void> {
+async function sendDiagnosticsWithAI(doc: TextDocument): Promise<void> {
   const staticDiags = await runStaticAnalysis(doc);
   const halluDiags = await runHallucinatedCheck(doc);
-  const uri = doc.uri;
-  connection.sendDiagnostics({ uri, diagnostics: [...staticDiags, ...halluDiags] });
+  const allStatic = [...staticDiags, ...halluDiags];
+
+  connection.sendDiagnostics({ uri: doc.uri, diagnostics: allStatic });
+
+  const apiKey = await getApiKey();
+  if (!apiKey) {
+    connection.sendNotification('ai-review/statusUpdate', {
+      type: 'disabled',
+      text: 'ai-review: No API key — AI checks disabled',
+    });
+    return;
+  }
+
+  connection.sendNotification('ai-review/statusUpdate', {
+    type: 'analyzing',
+    text: '$(loading~spin) ai-review: Analyzing...',
+  });
+
+  const content = doc.getText();
+  const cached = await cache.get(content);
+
+  let aiFindings: Finding[];
+  if (cached) {
+    aiFindings = cached.findings.filter((f) => f.source === 'ai');
+    connection.console.log(`Cache hit for ${doc.uri}`);
+  } else {
+    const language = detectLanguage(doc.uri);
+    const model = await getModel();
+    const config: ReviewConfig = { anthropicApiKey: apiKey, model };
+    const result = await reviewFileWithAI({
+      file: doc.uri,
+      language,
+      content,
+      config,
+      enabledChecks: { complexity: true, conventions: false },
+    });
+    aiFindings = result.findings;
+
+    const fileReview = {
+      file: doc.uri,
+      language,
+      findings: aiFindings,
+      tokensUsed: result.tokensUsed,
+    };
+    await cache.set(content, fileReview);
+  }
+
+  connection.sendNotification('ai-review/statusUpdate', {
+    type: 'done',
+    text: '$(check) ai-review: Done',
+  });
+
+  const aiDiags = aiFindings.map(findingToDiagnostic);
+  connection.sendDiagnostics({ uri: doc.uri, diagnostics: [...allStatic, ...aiDiags] });
 }
+
+connection.onRequest('ai-review/clearCache', async (): Promise<{ entriesRemoved: number }> => {
+  const stats = await cache.stats();
+  await cache.clear();
+  return { entriesRemoved: stats.entries };
+});
+
+connection.onRequest('ai-review/reviewFile', async (params: { uri: string }): Promise<void> => {
+  const doc = documents.get(params.uri);
+  if (!doc) return;
+  await sendDiagnosticsWithAI(doc);
+});
 
 documents.onDidOpen(async (e) => {
   connection.console.log(`Document opened: ${e.document.uri}`);
-  await sendDiagnostics(e.document);
+  const staticDiags = await runStaticAnalysis(e.document);
+  connection.sendDiagnostics({ uri: e.document.uri, diagnostics: staticDiags });
 });
 
 documents.onDidSave(async (e) => {
   connection.console.log(`Document saved: ${e.document.uri}`);
-  await sendDiagnosticsWithHallucinated(e.document);
+  await sendDiagnosticsWithAI(e.document);
 });
 
 documents.listen(connection);

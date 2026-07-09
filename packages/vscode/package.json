@@ -39,6 +39,16 @@
     "@types/vscode": "^1.85.0"
   },
   "contributes": {
+    "commands": [
+      {
+        "command": "ai-review.clearCache",
+        "title": "ai-review: Clear analysis cache"
+      },
+      {
+        "command": "ai-review.reviewFile",
+        "title": "ai-review: Review current file"
+      }
+    ],
     "configuration": {
       "title": "ai-review",
       "properties": {
