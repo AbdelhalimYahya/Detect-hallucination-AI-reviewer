@@ -1,0 +1,438 @@
+@startuml ai-review-architecture
+!theme plain
+
+' ======================================================================
+' Title
+' ======================================================================
+
+title ai-review — Architecture Overview
+
+' ======================================================================
+' Component definitions
+' ======================================================================
+
+package "CLI (npx ai-review)" as CLI {
+  [cli.ts] as CLIMain
+  [Terminal Report] as TerminalReport
+  [HTML Report] as HTMLReport
+  [JSON Report] as JSONReport
+}
+
+package "@ai-review/core" as Core {
+  [config.ts] as ConfigLoader
+  [types.ts] as Types
+  
+  package "Scanner" as Scanner {
+    [fileWalker.ts] as FileWalker
+    [runReview.ts] as Orchestrator
+  }
+  
+  package "Static Rules" as Rules {
+    [deprecatedApis.ts] as DeprecatedRule
+    [securityPatterns.ts] as SecurityRule
+    [hallucinatedPackages.ts] as HalluCheck
+  }
+  
+  package "AI" as AI {
+    [batchCaller.ts] as BatchCaller
+  }
+  
+  package "Cache" as Cache {
+    [resultCache.ts] as ResultCache
+  }
+}
+
+package "VS Code Extension" as VSCode {
+  [extension.ts] as VSClient
+  [server.ts] as LSP
+}
+
+package "Databases" as Databases {
+  file "deprecated-node.json" as DBNode
+  file "deprecated-react.json" as DBReact
+  file "deprecated-python.json" as DBPython
+}
+
+package "External" as External {
+  [npm Registry] as NPM
+  [PyPI Registry] as PyPI
+  [Anthropic API] as Anthropic
+  [VS Code API] as VSCodeAPI
+}
+
+' ======================================================================
+' Data flow
+' ======================================================================
+
+CLIMain --> ConfigLoader : loadConfig(targetDir)
+CLIMain --> Orchestrator : runReview(targetDir, config)
+
+Orchestrator --> FileWalker : walkFiles(rootDir, config)
+FileWalker --> [Files on Disk] : read content
+
+Orchestrator --> DeprecatedRule : check(content, path, lang)
+Orchestrator --> SecurityRule : check(content, path, lang)
+Orchestrator --> HalluCheck : check(content, path, lang)
+
+DeprecatedRule --> DBNode : read (JS/TS files)
+DeprecatedRule --> DBReact : read (JS/TS files)
+DeprecatedRule --> DBPython : read (Python files)
+
+HalluCheck --> NPM : HEAD {package-name}
+HalluCheck --> PyPI : HEAD {package-name}
+
+Orchestrator --> ResultCache : get(fileContent)
+Orchestrator --> BatchCaller : reviewFileWithAI(file, lang, content, config)
+BatchCaller --> Anthropic : messages.create()
+BatchCaller --> ResultCache : set(fileContent, result)
+
+Orchestrator --> [Per-file Findings]
+
+CLIMain --> TerminalReport : printTerminalReport(result)
+CLIMain --> HTMLReport : writeHtmlReport(result, path)
+CLIMain --> JSONReport : fs.writeFile(jsonPath, JSON)
+
+' ======================================================================
+' VS Code flow
+' ======================================================================
+
+VSClient --> VSCodeAPI : activate()
+VSClient --> LSP : start via LanguageClient
+LSP --> ConfigLoader : loadConfig()
+LSP --> DeprecatedRule : on open (fast)
+LSP --> SecurityRule : on open (fast)
+LSP --> HalluCheck : on save only
+LSP --> ResultCache : on save (check cache)
+LSP --> BatchCaller : on save (AI analysis)
+LSP --> VSCodeAPI : sendDiagnostics()
+
+' ======================================================================
+' Relationships
+' ======================================================================
+
+CLI --> Core : depends on @ai-review/core
+VSCode --> Core : depends on @ai-review/core
+Core --> Types : implements
+CLI --> Databases : copies at build time
+VSCode --> Databases : copies at build time
+
+' ======================================================================
+' Notes
+' ======================================================================
+
+note right of Orchestrator
+  For each file:
+  1. Run all static rules in sequence
+  2. Check content-hash cache for AI results
+  3. Call AI only on cache miss
+  4. Aggregate findings
+end note
+
+note right of ResultCache
+  Key: SHA-256(file content)
+  TTL: 30 days
+  Location: ~/.ai-review/cache/
+end note
+
+note right of BatchCaller
+  Always batches complexity +
+  conventions into a single
+  API call per file.
+end note
+
+' ======================================================================
+' Legend
+' ======================================================================
+
+legend bottom
+  |= Color |= Meaning |
+  | Skinparam BackgroundColor | |
+  | <#LIGHTBLUE>  | CLI layer |
+  | <#LIGHTGREEN> | Core engine |
+  | <#LIGHTCYAN>  | VS Code layer |
+  | <#LIGHTYELLOW>| External dependencies |
+  | Arrow direction | Data flow / dependency |
+end legend
+
+@enduml
+
+
+' ======================================================================
+' Second diagram: Review Pipeline Sequence
+' ======================================================================
+
+@startuml ai-review-pipeline
+!theme plain
+
+title ai-review — Review Pipeline Sequence
+
+actor User as User
+participant CLI as "CLI\n(commander)"
+participant Orchestrator as "runReview()"
+participant Walker as "fileWalker()"
+participant Rules as "Static Rules\n(deprecatedApis,\nsecurityPatterns,\nhallucinatedPackages)"
+participant Cache as "ResultCache\n(SHA-256)"
+participant AI as "batchCaller\n(Anthropic)"
+participant Report as "Reporters\n(Terminal, HTML, JSON)"
+
+User -> CLI: ai-review scan ./src [--no-ai]
+CLI -> Orchestrator: runReview(target, config)
+Orchestrator -> Walker: walkFiles(rootDir, config)
+Walker --> Orchestrator: FileEntry[]
+
+loop for each file
+  Orchestrator -> Rules: check(content, path, lang)
+  Rules --> Orchestrator: Finding[] (static)
+  
+  alt API key available && AI checks enabled
+    Orchestrator -> Cache: get(fileContent)
+    alt Cache HIT
+      Cache --> Orchestrator: FileReview (cached)
+    else Cache MISS
+      Orchestrator -> AI: reviewFileWithAI(...)
+      AI --> Orchestrator: { findings, tokensUsed }
+      Orchestrator -> Cache: set(fileContent, result)
+    end
+  else No API key or --no-ai
+    Orchestrator -> Orchestrator: AI findings = []
+  end
+  
+  Orchestrator -> Orchestrator: Merge static + AI findings
+end
+
+Orchestrator -> Orchestrator: computeSummary() → totals, cost
+
+Orchestrator --> CLI: ReviewResult
+CLI -> Report: print / write reports
+CLI --> User: Terminal output + report files
+
+@enduml
+
+
+' ======================================================================
+' Third diagram: Package Dependencies
+' ======================================================================
+
+@startuml ai-review-packages
+!theme plain
+
+title ai-review — Package Dependencies
+
+package "ai-review (monorepo)" {
+  
+  package "packages/cli" as PCLI {
+    [commander] as DepCommander
+    [chalk] as DepChalk
+    [cli-table3] as DepTable
+    
+    note right of PCLI
+      Published as "ai-review" on npm
+      Bin: ai-review → dist/cli.js
+      Bundled as single-file esbuild output
+    end note
+  }
+  
+  package "packages/core" as PCore {
+    [zod] as DepZod
+    [@anthropic-ai/sdk] as DepAnthropic
+    
+    note right of PCore
+      Not published separately.
+      All code bundled into CLI dist.
+    end note
+  }
+  
+  package "packages/vscode" as PVSC {
+    [vscode-languageserver] as DepLS
+    [vscode-languageclient] as DepLC
+    
+    note right of PVSC
+      Published as "ai-review-vscode" on
+      VS Code Marketplace (.vsix)
+    end note
+  }
+  
+  package "databases" as DB {
+    file "deprecated-{node,react,python}.json"
+  }
+  
+  package "fixtures" as FIX {
+    file "corpus/*/"
+    file "prompt-patterns/"
+  }
+  
+  PCLI --> PCore : npm workspace link
+  PVSC --> PCore : npm workspace link
+  PCLI --> DB : copied at build time (bundle-core.mjs)
+  PVSC --> DB : copied at build time (build.mjs)
+  
+  PCLI --> DepCommander
+  PCLI --> DepChalk
+  PCLI --> DepTable
+  PCore --> DepZod
+  PCore --> DepAnthropic
+  PVSC --> DepLS
+  PVSC --> DepLC
+}
+
+database "npm Registry" as NPMREG
+database "PyPI Registry" as PYPIREG
+database "Anthropic API" as ANTHAPI
+
+PCore --> NPMREG : HEAD requests (hallucinated packages)
+PCore --> PYPIREG : HEAD requests (hallucinated packages)
+PCore --> ANTHAPI : messages.create() (AI checks)
+
+@enduml
+
+
+' ======================================================================
+' Fourth diagram: LSP Server Architecture
+' ======================================================================
+
+@startuml ai-review-lsp
+!theme plain
+
+title VS Code / Cursor — LSP Architecture
+
+actor Developer as Dev
+participant "VS Code / Cursor" as Editor
+participant "Extension Client\n(extension.ts)" as ExtClient
+participant "LSP Server\n(server.ts)" as LSPServer
+participant "@ai-review/core" as Core
+collections "Diagnostics" as Diag
+
+Dev -> Editor: Open or save .ts/.js/.py file
+Editor -> ExtClient: activate() → start LanguageClient
+ExtClient -> LSPServer: LSP Initialize
+LSPServer --> ExtClient: capabilities
+
+alt Document Opened
+  Editor -> LSPServer: textDocument/didOpen
+  LSPServer -> Core: runStaticAnalysis() → deprecatedApis + securityPatterns
+  Core --> LSPServer: Diagnostic[]
+  LSPServer -> ExtClient: textDocument/publishDiagnostics (static only)
+  ExtClient -> Diag: Apply squiggles
+else Document Saved
+  Editor -> LSPServer: textDocument/didSave
+  LSPServer -> Core: runStaticAnalysis() + runHallucinatedCheck()
+  LSPServer -> Core: ResultCache.get() → check AI cache
+  alt Cache HIT
+    Core --> LSPServer: cached FileReview
+  else Cache MISS
+    LSPServer -> Core: reviewFileWithAI() → Anthropic API
+    Core --> LSPServer: AI findings
+    LSPServer -> Core: ResultCache.set()
+  end
+  LSPServer -> ExtClient: textDocument/publishDiagnostics (static + AI combined)
+  ExtClient -> Diag: Update squiggles
+else Manual Review Request
+  Dev -> Editor: ai-review.reviewFile command
+  Editor -> LSPServer: ai-review/reviewFile
+  LSPServer -> Core: Full review (forced, no cache)
+end
+
+Dev -> Diag: Hover to see message + suggestion
+
+@enduml
+
+
+' ======================================================================
+' Fifth diagram: Class / Interface Structure
+' ======================================================================
+
+@startuml ai-review-types
+!theme plain
+
+title Core — Type Relationships
+
+interface "Rule" as IRule {
+  + id: string
+  + category: CheckCategory
+  + severity: Severity
+  + language: Language | "all"
+  + check(content, path, lang): Finding[]
+}
+
+class "ReviewConfig" as Config {
+  + anthropicApiKey?: string
+  + model?: string
+  + conventions?: string[]
+  + ignorePatterns?: string[]
+  + checks?: { ... }
+  + languages?: Language[]
+}
+
+class "Finding" as Finding {
+  + id: string
+  + category: CheckCategory
+  + severity: Severity
+  + title: string
+  + message: string
+  + suggestion: string
+  + file: string
+  + line: number
+  + column: number
+  + endLine?: number
+  + endColumn?: number
+  + source: "static" | "ai"
+  + ruleUrl?: string
+}
+
+class "FileReview" as FileReview {
+  + file: string
+  + language: Language
+  + findings: Finding[]
+  + cachedAt?: string
+  + tokensUsed?: number
+}
+
+class "ReviewResult" as ReviewResult {
+  + target: string
+  + scannedAt: string
+  + filesReviewed: number
+  + totalFindings: number
+  + byCategory: Record<CheckCategory, number>
+  + bySeverity: Record<Severity, number>
+  + files: FileReview[]
+  + totalTokensUsed: number
+  + estimatedCostUsd: number
+}
+
+class "ResultCache" as ResultCache {
+  + constructor(cacheDir)
+  + get(fileContent): Promise<FileReview | null>
+  + set(fileContent, result): Promise<void>
+  + clear(): Promise<void>
+  + stats(): { entries, sizeKb }
+}
+
+class "loadConfig" as LoadConfig {
+  + loadConfig(rootDir): Promise<ReviewConfig>
+  + findConfigFile(startDir): Promise<string | null>
+  + generateDefaultConfig(outputPath): Promise<void>
+}
+
+class "reviewFileWithAI" as AICaller {
+  + reviewFileWithAI({file, lang, content, config, enabledChecks})
+  : Promise<{ findings, tokensUsed }>
+}
+
+class "runReview" as RunReview {
+  + runReview(rootDir, config, onProgress?): Promise<ReviewResult>
+  + walkFiles(rootDir, config): Promise<FileEntry[]>
+}
+
+Finding --> FileReview : findings[]
+FileReview --> ReviewResult : files[]
+Config --> ReviewResult : passed to runReview
+
+LoadConfig --> ReviewConfig : returns
+
+IRule --> Finding : check() returns
+
+RunReview --> ResultCache : uses
+RunReview --> AICaller : uses (when AI enabled)
+RunReview --> IRule : uses (deprecated, security, hallu)
+
+@enduml
